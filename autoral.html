@@ -1,0 +1,1441 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Luiz Lavall</title>
+  <style>
+        @font-face {
+      font-family: "PP Editorial New";
+      src: url("pp editorial new/PPEditorialNew-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "PP Editorial New";
+      src: url("pp editorial new/PPEditorialNew-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "PP Editorial New";
+      src: url("pp editorial new/PPEditorialNew-UltralightItalic.woff2") format("woff2");
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Margem";
+      src: url("margem condensed/Margem-CondensedRegular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Margem";
+      src: url("margem condensed/Margem-CondensedItalic.woff2") format("woff2");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Margem";
+      src: url("margem condensed/Margem-CondensedLight.woff2") format("woff2");
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Margem";
+      src: url("margem condensed/Margem-CondensedLightItalic.woff2") format("woff2");
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+:root {
+      --preto: #141414;
+      --branco: #fafafa;
+      --verde: #7b8f70;
+      --cinza: #ededed;
+
+      --fs-h1: 48px;
+      --fs-h2: 32px;
+      --fs-b1: 24px;
+      --fs-b2: 18px;
+      --fs-b3: 18px;
+
+      --serif: "PP Editorial New", "Times New Roman", serif;
+      --sans-condensed: "Margem", "Roboto Condensed", "Barlow Condensed", system-ui, sans-serif;
+      --sans-light: "Margem", system-ui, sans-serif;
+
+      --linha: 1px solid rgba(20, 20, 20, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--branco);
+      color: var(--preto);
+      font-family: var(--sans-condensed);
+      font-stretch: 75%;
+      font-variation-settings: "wdth" 75;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body { min-height: 100vh; }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 56px;
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b1);
+      font-weight: 400;
+    }
+    .nav__left { display: flex; gap: 56px; }
+    .nav a { transition: opacity .2s ease; }
+    .nav a:hover { opacity: .6; }
+
+    .nav__right a {
+      border: 0.5px solid var(--preto);
+      border-radius: 100px;
+      padding: 4px 16px;
+      font-size: var(--fs-b1);
+      transition: background .25s ease, color .25s ease, opacity .25s ease;
+    }
+    .nav__right a:hover {
+      opacity: 1;
+      background: var(--preto);
+      color: var(--branco);
+    }
+
+    .nav__contact-wrap { position: relative; }
+    .nav__contact-btn {
+      border: 0.5px solid var(--preto);
+      border-radius: 100px;
+      padding: 4px 16px;
+      font-size: var(--fs-b1);
+      font-family: var(--sans-condensed);
+      font-weight: 400;
+      background: none;
+      cursor: pointer;
+      color: var(--preto);
+      transition: background .25s ease, color .25s ease, opacity .25s ease;
+    }
+    .nav__contact-btn:hover,
+    .nav__contact-wrap.is-open .nav__contact-btn {
+      opacity: 1;
+      background: var(--preto);
+      color: var(--branco);
+    }
+    .nav__dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: var(--branco);
+      border: 0.5px solid rgba(20,20,20,.18);
+      border-radius: 14px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 280px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 200;
+      box-shadow: 0 4px 24px rgba(20,20,20,.08);
+    }
+    .nav__contact-wrap.is-open .nav__dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .nav__dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 8px;
+      padding: 8px 10px;
+      transition: background .15s ease;
+    }
+    .nav__dropdown-item:hover { background: var(--cinza); }
+    .nav__dropdown-link {
+      flex: 1;
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b2);
+      color: var(--preto);
+      white-space: nowrap;
+    }
+    .nav a.nav__dropdown-link:hover { opacity: 1; }
+    .nav__dropdown-copy {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--preto);
+      opacity: .4;
+      transition: opacity .15s ease, color .15s ease;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav__dropdown-copy:hover { opacity: .8; }
+    .nav__dropdown-copy.copied { color: var(--verde); opacity: 1; }
+    .contact__link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans-condensed); font-size: var(--fs-b1); border: 0.5px solid var(--preto); border-radius: 100px; padding: 6px 18px; transition: background .25s ease, color .25s ease; }
+    .contact__link:hover { background: var(--preto); color: var(--branco); }
+    .contact__link svg { width: 16px; height: 16px; }
+    .contact__link--soon { cursor: default; opacity: .35; position: relative; }
+    .contact__link--soon:hover { background: none; color: var(--preto); }
+    .contact__link--soon::before { content: 'em breve'; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: var(--preto); color: var(--branco); padding: 4px 12px; border-radius: 4px; font-size: 11px; white-space: nowrap; margin-bottom: 8px; opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+    .contact__link--soon:hover::before { opacity: 1; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      background: var(--branco);
+      z-index: 10;
+    }
+
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      flex-direction: column;
+      padding: 0 56px 24px;
+    }
+
+    /* ---------- PortfÃ³lio ---------- */
+    .portfolio {
+      padding: 80px 56px 120px;
+    }
+
+    .portfolio__title {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: var(--fs-h2);
+      margin-bottom: 48px;
+    }
+
+    .portfolio__grid {
+      column-count: 2;
+      column-gap: 32px;
+    }
+
+    .card {
+      break-inside: avoid;
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .card__media {
+      width: 100%;
+      background: var(--cinza);
+      display: block;
+      border-radius: 15px;
+    }
+
+    .card--tall .card__media   { aspect-ratio: 4 / 5; }
+    .card--medium .card__media { aspect-ratio: 4 / 3; }
+    .card--short .card__media  { aspect-ratio: 16 / 10; }
+    .card--wide .card__media   { aspect-ratio: 16 / 11; }
+
+    .card__caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+      padding: 6px 0 0;
+      margin-top: 4px;
+    }
+
+    .card__title {
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b2);
+      font-weight: 400;
+      color: var(--preto);
+    }
+
+    .card__tags {
+      font-family: var(--sans-light);
+      font-size: var(--fs-b3);
+      font-weight: 300;
+      color: var(--preto);
+      opacity: .7;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio { padding: 48px 24px 80px; }
+      .portfolio__grid { column-count: 1; }
+      .portfolio__title { font-size: 24px; margin-bottom: 32px; }
+    }
+
+    /* ---------- ServiÃ§os (scroll-pinned) ---------- */
+    .services {
+      border-top: var(--linha);
+    }
+
+    .services__inner {
+      position: relative;
+      /* altura definida via JS = count * 100vh */
+    }
+
+    .services__pin {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 56px;
+    }
+
+    .services__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      width: 100%;
+      align-items: start;
+    }
+
+    .services__label {
+      display: block;
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b2);
+      opacity: .6;
+      margin-bottom: 16px;
+    }
+
+    .services__titles {
+      position: relative;
+      min-height: calc(var(--fs-h1) * 2.1);
+    }
+
+    .services__title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      font-family: var(--serif);
+      font-weight: 200;
+      font-style: italic;
+      font-size: var(--fs-h1);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: transform .7s cubic-bezier(.22,1,.36,1), opacity .5s ease;
+      pointer-events: none;
+    }
+    .services__title.is-active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .services__title.is-past {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+
+    .services__bodies {
+      position: relative;
+      min-height: 12em;
+    }
+
+    .services__body {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b1);
+      line-height: 1.45;
+      max-width: 520px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: transform .7s cubic-bezier(.22,1,.36,1), opacity .5s ease;
+      pointer-events: none;
+    }
+    .services__body p + p { margin-top: 18px; }
+    .services__body.is-active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .services__body.is-past {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    /* ---------- InformaÃ§Ãµes ---------- */
+    .info {
+      border-top: var(--linha);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      padding: 80px 56px;
+    }
+
+    .info__title {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-style: italic;
+      font-size: var(--fs-h1);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+
+    .info__body {
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b1);
+      line-height: 1.45;
+      max-width: 520px;
+    }
+    .info__body p + p { margin-top: 18px; }
+
+    .btn-text {
+      display: inline-block;
+      margin-top: 28px;
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b2);
+      border: 0.5px solid var(--preto);
+      border-radius: 100px;
+      padding: 4px 16px;
+      transition: background .25s ease, color .25s ease;
+    }
+    .btn-text:hover { background: var(--preto); color: var(--branco); }
+
+    /* ---------- Entre em contato ---------- */
+    .contact {
+      border-top: var(--linha);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 36px 56px;
+      border-bottom: var(--linha);
+    }
+
+    .contact__title {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-style: italic;
+      font-size: var(--fs-h1);
+      letter-spacing: -0.01em;
+    }
+
+    .contact__links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .contact__links a {
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b2);
+      border: 0.5px solid var(--preto);
+      border-radius: 100px;
+      padding: 6px 18px;
+      transition: background .25s ease, color .25s ease;
+    }
+    .contact__links a:hover { background: var(--preto); color: var(--branco); }
+
+    @media (max-width: 768px) {
+      .services__inner { height: auto !important; }
+      .services__pin { position: static; height: auto; padding: 56px 24px; }
+      .services__layout { grid-template-columns: 1fr; gap: 24px; }
+      .services__titles { min-height: 0; }
+      .services__title { position: relative; opacity: 1; transform: none; font-size: 32px; margin-bottom: 16px; }
+      .services__bodies { min-height: 0; }
+      .services__body { position: relative; opacity: 1; transform: none; margin-bottom: 48px; }
+      .services__body:last-child { margin-bottom: 0; }
+      .info { grid-template-columns: 1fr; gap: 24px; padding: 56px 24px; }
+      .info__title { font-size: 32px; }
+      .contact { padding: 28px 24px; }
+      .contact__title { font-size: 22px; }
+    }
+
+    .hero__desc {
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b1);
+      font-weight: 400;
+      line-height: 1.35;
+      max-width: 460px;
+      margin-top: 18vh;
+    }
+
+    .hero__logo {
+      width: 100%;
+      margin-top: auto;
+    }
+    .hero__logo svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 20px 24px; gap: 16px; }
+      .nav__left { gap: 20px; flex-wrap: wrap; }
+      .hero { padding: 0 24px 24px; }
+      .hero__desc { font-size: 22px; margin-top: 10vh; max-width: 100%; }
+    }
+
+    /* ---------- Footer reveal ---------- */
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      background: var(--branco);
+      isolation: isolate;
+    }
+
+    .footer-logo {
+      position: sticky;
+      bottom: 0;
+      z-index: 0;
+      border-top: var(--linha);
+      background: var(--branco);
+      padding: 56px 56px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      fill: var(--preto);
+    }
+
+    /* ---------- Autoral ---------- */
+    .autoral {
+      border-top: var(--linha);
+      padding: 80px 56px 120px;
+    }
+
+    .autoral__title {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-style: italic;
+      font-size: var(--fs-h1);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 56px;
+    }
+
+    .autoral__grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .autoral-card {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .autoral-card__img {
+      border-radius: 10px;
+      width: 100%;
+      display: block;
+      transition: opacity .2s ease;
+    }
+
+    .autoral-card:hover .autoral-card__img { opacity: .55; }
+
+    .autoral-card__name {
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b2);
+      font-weight: 400;
+      opacity: .6;
+      line-height: 1.3;
+    }
+
+    .autoral-card--s  { width: 160px; }
+    .autoral-card--m  { width: 230px; }
+    .autoral-card--l  { width: 320px; }
+    .autoral-card--xl { width: 430px; }
+
+    .autoral-card--portrait  .autoral-card__img { aspect-ratio: 3/4; }
+    .autoral-card--square    .autoral-card__img { aspect-ratio: 1/1; }
+    .autoral-card--landscape .autoral-card__img { aspect-ratio: 4/3; }
+    .autoral-card--tall      .autoral-card__img { aspect-ratio: 2/3; }
+    .autoral-card--wide      .autoral-card__img { aspect-ratio: 16/9; }
+
+    /* ---------- Modal autoral ---------- */
+    .autoral-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      background: rgba(20,20,20,.78);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+    .autoral-modal.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .autoral-modal__inner {
+      background: var(--branco);
+      border-radius: 15px;
+      max-width: 880px;
+      width: calc(100% - 48px);
+      max-height: 85vh;
+      overflow: hidden;
+      padding: 0;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      transform: translateY(20px);
+      transition: transform .3s cubic-bezier(.22,1,.36,1);
+    }
+    .autoral-modal.is-open .autoral-modal__inner {
+      transform: translateY(0);
+    }
+    .autoral-modal__close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      z-index: 10;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      opacity: .4;
+      line-height: 1;
+      color: var(--preto);
+      transition: opacity .15s ease;
+      padding: 4px;
+    }
+    .autoral-modal__close:hover { opacity: 1; }
+    .autoral-modal__img-wrap {
+      flex: 0 0 44%;
+      border-radius: 15px 0 0 15px;
+      overflow: hidden;
+      min-height: 300px;
+    }
+    .autoral-modal__body {
+      flex: 1;
+      padding: 48px 44px 40px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,.12) transparent;
+    }
+    .autoral-modal__body::-webkit-scrollbar { width: 4px; }
+    .autoral-modal__body::-webkit-scrollbar-track { background: transparent; }
+    .autoral-modal__body::-webkit-scrollbar-thumb { background: rgba(0,0,0,.18); border-radius: 2px; }
+    .autoral-modal__title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: var(--fs-h2);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .autoral-modal__text {
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b1);
+      font-weight: 400;
+      line-height: 1.55;
+      opacity: .65;
+    }
+    .autoral-modal__nav {
+      display: none;
+      align-items: center;
+      gap: 16px;
+      margin-top: auto;
+      padding-top: 24px;
+    }
+    .autoral-modal__arrow {
+      background: none;
+      border: 1px solid rgba(20,20,20,.2);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--preto);
+      transition: background .15s ease, border-color .15s ease;
+      flex-shrink: 0;
+    }
+    .autoral-modal__arrow:hover {
+      background: var(--preto);
+      color: var(--branco);
+      border-color: var(--preto);
+    }
+    .autoral-modal__dots {
+      display: flex;
+      gap: 7px;
+      flex: 1;
+      justify-content: center;
+    }
+    .autoral-modal__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(20,20,20,.18);
+      transition: background .2s ease, transform .2s ease;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .autoral-modal__dot.is-active {
+      background: var(--preto);
+      transform: scale(1.3);
+    }
+
+    @media (max-width: 768px) {
+      .autoral { padding: 56px 24px 80px; }
+      .autoral__grid { gap: 12px; }
+      .autoral-card--xl { width: calc(100% - 0px); }
+      .autoral-card--l  { width: calc(55% - 6px); }
+      .autoral-card--m  { width: calc(42% - 6px); }
+      .autoral-card--s  { width: calc(36% - 6px); }
+      .autoral-modal__inner {
+        flex-direction: column;
+        overflow-y: auto;
+        max-height: 88vh;
+        scrollbar-width: none;
+      }
+      .autoral-modal__inner::-webkit-scrollbar { display: none; }
+      .autoral-modal__img-wrap {
+        flex: 0 0 auto;
+        min-height: 0;
+        border-radius: 15px 15px 0 0;
+      }
+      .autoral-modal__body {
+        padding: 24px 20px 28px;
+        overflow: visible;
+      }
+    }
+
+    /* ---------- Autoral page (panoramic) ---------- */
+    .autoral-page {
+      padding: 60px 0 100px;
+    }
+    .autoral-page__header {
+      padding: 0 56px 72px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .autoral-page__title {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-style: italic;
+      font-size: var(--fs-h1);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    .autoral-page__desc {
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b1);
+      line-height: 1.45;
+      max-width: 480px;
+    }
+    .autoral-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .autoral-row {
+      overflow: hidden;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+              mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    }
+    .autoral-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      align-items: flex-start;
+      padding: 32px 0;
+      will-change: transform;
+    }
+    .autoral-row--left .autoral-track {
+      animation: autoral-marquee-left 90s linear infinite;
+    }
+    .autoral-row--right .autoral-track {
+      animation: autoral-marquee-right 75s linear infinite;
+    }
+    .autoral-row--slow .autoral-track { animation-duration: 110s; }
+    .autoral-row--fast .autoral-track { animation-duration: 60s; }
+    @keyframes autoral-marquee-left {
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(-50%, 0, 0); }
+    }
+    @keyframes autoral-marquee-right {
+      from { transform: translate3d(-50%, 0, 0); }
+      to   { transform: translate3d(0, 0, 0); }
+    }
+    .autoral-row:hover .autoral-track {
+      animation-play-state: paused;
+    }
+    .autoral-row { cursor: grab; }
+    .autoral-row.is-dragging { cursor: grabbing; }
+    .autoral-track .autoral-card { flex-shrink: 0; }
+    .autoral-track .autoral-card:nth-child(4n+1) { margin-top: 0; }
+    .autoral-track .autoral-card:nth-child(4n+2) { margin-top: 40px; }
+    .autoral-track .autoral-card:nth-child(4n+3) { margin-top: 18px; }
+    .autoral-track .autoral-card:nth-child(4n)   { margin-top: 56px; }
+    @media (max-width: 768px) {
+      .autoral-page { padding: 40px 0 60px; }
+      .autoral-page__header { padding: 0 24px 48px; }
+      .autoral-row--left .autoral-track  { animation-duration: 60s; }
+      .autoral-row--right .autoral-track { animation-duration: 50s; }
+      .autoral-row--slow .autoral-track  { animation-duration: 80s; }
+      .autoral-row--fast .autoral-track  { animation-duration: 40s; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .autoral-track { animation: none !important; }
+    }
+
+    @media (max-width: 1024px) {
+      .nav { padding: 24px 32px; }
+      .autoral-page { padding: 48px 0 80px; }
+      .autoral-page__header { padding: 0 32px 56px; }
+      .autoral-modal__inner { max-width: 760px; }
+    }
+
+    @media (max-width: 480px) {
+      .nav { padding: 20px 24px; }
+      .nav__left { gap: 14px; }
+      .autoral-page { padding: 32px 0 60px; }
+      .autoral-page__header { padding: 0 20px 36px; }
+      .autoral-page__desc { font-size: 18px; }
+      .autoral-rows { gap: 16px; }
+      .autoral-track { gap: 12px; padding: 20px 0; }
+      .autoral-card--s  { width: 130px; }
+      .autoral-card--m  { width: 180px; }
+      .autoral-card--l  { width: 240px; }
+      .autoral-card--xl { width: 320px; }
+    }
+    .footer-logo a { display: block; width: 100%; }
+    .footer-logo { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+    .nav__hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; margin: -6px; order: 0; }
+    .nav__hamburger span { display: block; width: 22px; height: 1.5px; background: var(--preto); transition: transform .25s ease, opacity .15s ease; border-radius: 1px; }
+    .nav--open .nav__hamburger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav--open .nav__hamburger span:nth-child(2) { opacity: 0; }
+    .nav--open .nav__hamburger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 1024px) {
+      .footer-logo { padding: 40px 32px calc(48px + env(safe-area-inset-bottom, 0px)); }
+    }
+    @media (max-width: 768px) {
+      .nav { flex-wrap: wrap; }
+      .nav__hamburger { display: flex; order: 1; }
+      .nav__left { display: none; width: 100%; flex-direction: column; gap: 0 !important; flex-wrap: nowrap !important; order: 3; padding: 4px 0 12px; border-top: 0.5px solid rgba(20,20,20,.12); margin-top: 8px; text-align: left; }
+      .nav__left li { padding: 8px 0; }
+      .nav__right { order: 2; margin-left: auto; }
+      .nav--open .nav__left { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .footer-logo { padding: 32px 20px calc(48px + env(safe-area-inset-bottom, 0px)); }
+    }
+  </style>
+
+<script src="media-helper.js?v=2"></script>
+</head>
+<body>
+  <div class="page-wrap">
+  <header class="nav">
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav__left">
+      <li><a href="/index.html#trabalhos">trabalhos</a></li>
+      <li><a href="/sobre.html">sobre</a></li>
+      <li><a href="/autoral.html" aria-current="page">autoral</a></li>
+      <li><a href="/pensamentos.html">pensamentos</a></li>
+    </ul>
+    <ul class="nav__right">
+      <li class="nav__contact-wrap">
+        <button class="nav__contact-btn" aria-haspopup="true" aria-expanded="false">contato</button>
+        <div class="nav__dropdown" role="menu">
+          <div class="nav__dropdown-item">
+            <a href="https://wa.me/5562991760298?text=Ol%C3%A1%2C+Luiz%21+Vi+seu+site+e+gostaria+de+conversar+com+voc%C3%AA." target="_blank" rel="noopener" class="nav__dropdown-link">62 99176 0298</a>
+            <button class="nav__dropdown-copy" data-copy="62 99176 0298" title="Copiar número">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            </button>
+          </div>
+          <div class="nav__dropdown-item">
+            <a href="mailto:luizpaulo.lavall@gmail.com" class="nav__dropdown-link">luizpaulo.lavall@gmail.com</a>
+            <button class="nav__dropdown-copy" data-copy="luizpaulo.lavall@gmail.com" title="Copiar e-mail">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </header>
+
+  <section class="autoral-page" id="autoral">
+    <header class="autoral-page__header">
+      <p class="autoral-page__desc">
+        biblioteca aberta de projetos pequenos e experimentais &mdash; peças isoladas, ensaios visuais, exercícios sem destino. Coisas feitas para entender alguma coisa enquanto se fazia.
+      </p>
+    </header>
+
+    <div class="autoral-rows">
+
+      <div class="autoral-row autoral-row--left autoral-row--slow">
+        <div class="autoral-track">
+
+          <div class="autoral-card autoral-card--m autoral-card--portrait" data-title="Experimento tipográfico I" data-text="Exploração de composição tipográfica com tipos serifados e espaçamento livre. Um exercício sobre ritmo visual e peso na página." data-ratio="3/4" data-color="#e4e0d8">
+            <div class="autoral-card__img" style="background:#e4e0d8"></div>
+            <span class="autoral-card__name">Experimento tipográfico I</span>
+          </div>
+
+          <div class="autoral-card autoral-card--xl autoral-card--wide" data-title="Série cromática" data-text="Série de peças explorando relações cromáticas complementares e análogas. Cada cor convocando outra pela ausência." data-ratio="16/9" data-color="#d8ddd6">
+            <div class="autoral-card__img" style="background:#d8ddd6"></div>
+            <span class="autoral-card__name">Série cromática</span>
+          </div>
+
+          <div class="autoral-card autoral-card--m autoral-card--landscape" data-title="Manuscrito digital" data-text="Caligrafia digital com ferramentas de vetor livre. O erro como parte do traço — não corrigir, registrar." data-ratio="4/3" data-color="#e4dfe6">
+            <div class="autoral-card__img" style="background:#e4dfe6"></div>
+            <span class="autoral-card__name">Manuscrito digital</span>
+          </div>
+
+          <div class="autoral-card autoral-card--m autoral-card--tall" data-title="Objeto gráfico #07" data-text="Peça sem função declarada. Objeto visual por si mesmo — sem briefing, sem cliente, sem justificativa além de existir." data-ratio="2/3" data-color="#e8e2df">
+            <div class="autoral-card__img" style="background:#e8e2df"></div>
+            <span class="autoral-card__name">Objeto gráfico #07</span>
+          </div>
+
+          <div class="autoral-card autoral-card--m autoral-card--portrait" data-title="Identidade fictícia" data-text="Criação de identidade visual para uma marca que não existe — laboratório de linguagem gráfica sem cliente para aprovar." data-ratio="3/4" data-color="#e8e4df">
+            <div class="autoral-card__img" style="background:#e8e4df"></div>
+            <span class="autoral-card__name">Identidade fictícia</span>
+          </div>
+
+          <div class="autoral-card autoral-card--l autoral-card--landscape" data-title="Editorial experimental" data-text="Dupla de página como experimento de diagramação sem hierarquia convencional. O texto como forma, a forma como texto." data-ratio="4/3" data-color="#dde0e4">
+            <div class="autoral-card__img" style="background:#dde0e4"></div>
+            <span class="autoral-card__name">Editorial experimental</span>
+          </div>
+
+          <div class="autoral-card autoral-card--s autoral-card--portrait" data-title="Ensaio cromático #1" data-text="Estudo em três cores sobre transição e relação tonal. Sobre como uma cor pede a próxima." data-ratio="3/4" data-color="#ddd9d3">
+            <div class="autoral-card__img" style="background:#ddd9d3"></div>
+            <span class="autoral-card__name">Ensaio cromático #1</span>
+          </div>
+
+          <div class="autoral-card autoral-card--l autoral-card--square" data-title="Estudo de grid" data-text="Experimentação com sistemas de grade como elemento expressivo, não apenas estrutural. O grid como sujeito, não andaime." data-ratio="1/1" data-color="#dfe4e0">
+            <div class="autoral-card__img" style="background:#dfe4e0"></div>
+            <span class="autoral-card__name">Estudo de grid</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="autoral-row autoral-row--right">
+        <div class="autoral-track">
+
+          <div class="autoral-card autoral-card--l autoral-card--landscape" data-title="Colagem digital" data-text="Projeto de colagem com recortes de arquivo e textura analógica digitalizada. Sobre criar imagens de camadas que nunca coexistiram." data-ratio="4/3" data-color="#dde1e7">
+            <div class="autoral-card__img" style="background:#dde1e7"></div>
+            <span class="autoral-card__name">Colagem digital</span>
+          </div>
+
+          <div class="autoral-card autoral-card--s autoral-card--tall" data-title="Textura #03" data-text="Padrão de superfície em técnica mista — nanquim, papel vegetal e scanner. Terceiro de uma série em aberto." data-ratio="2/3" data-color="#ece6e0">
+            <div class="autoral-card__img" style="background:#ece6e0"></div>
+            <span class="autoral-card__name">Textura #03</span>
+          </div>
+
+          <div class="autoral-card autoral-card--m autoral-card--square" data-title="Ícone fictício" data-text="Ícone para projeto que não foi adiante. Mantido aqui porque o desenho funciona por conta própria." data-ratio="1/1" data-color="#e7e2dc">
+            <div class="autoral-card__img" style="background:#e7e2dc"></div>
+            <span class="autoral-card__name">Ícone fictício</span>
+          </div>
+
+          <div class="autoral-card autoral-card--s autoral-card--square" data-title="Marca pessoal v1" data-text="Primeira versão de marca pessoal, descartada e arquivada. Fica aqui porque todo processo tem rastro." data-ratio="1/1" data-color="#e6e0d3">
+            <div class="autoral-card__img" style="background:#e6e0d3"></div>
+            <span class="autoral-card__name">Marca pessoal v1</span>
+          </div>
+
+          <div class="autoral-card autoral-card--m autoral-card--portrait" data-title="Composição livre" data-text="Composição sem propósito anterior — letras, traços e cor em busca de equilíbrio." data-ratio="3/4" data-color="#e6dfd9">
+            <div class="autoral-card__img" style="background:#e6dfd9"></div>
+            <span class="autoral-card__name">Composição livre</span>
+          </div>
+
+          <div class="autoral-card autoral-card--xl autoral-card--portrait" data-title="Impressão imaginária" data-text="Peça criada como se fosse impressa em risografia — grãos, camadas e imperfeições intencionais. A estética do limite como escolha." data-ratio="3/4" data-color="#e0e4df">
+            <div class="autoral-card__img" style="background:#e0e4df"></div>
+            <span class="autoral-card__name">Impressão imaginária</span>
+          </div>
+
+          <div class="autoral-card autoral-card--m autoral-card--landscape" data-title="Capa imaginária" data-text="Capa para um livro que ainda não existe — só o título existe, e ele basta." data-ratio="4/3" data-color="#e4dde0">
+            <div class="autoral-card__img" style="background:#e4dde0"></div>
+            <span class="autoral-card__name">Capa imaginária</span>
+          </div>
+
+          <div class="autoral-card autoral-card--s autoral-card--square" data-title="Poster minimalista" data-text="Estudo de composição com cor plana e forma geométrica. Quanto pode sobrar antes de ser vazio?" data-ratio="1/1" data-color="#e0dbd4">
+            <div class="autoral-card__img" style="background:#e0dbd4"></div>
+            <span class="autoral-card__name">Poster minimalista</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="autoral-row autoral-row--left autoral-row--fast">
+        <div class="autoral-track">
+
+          <div class="autoral-card autoral-card--s autoral-card--tall" data-title="Estudo de letra" data-text="Estudo de uma única letra — entender uma forma de cada vez." data-ratio="2/3" data-color="#dde4e0">
+            <div class="autoral-card__img" style="background:#dde4e0"></div>
+            <span class="autoral-card__name">Estudo de letra</span>
+          </div>
+
+          <div class="autoral-card autoral-card--s autoral-card--square" data-title="Padrão #04" data-text="Padrão geométrico em escala mínima. Repetição como matéria." data-ratio="1/1" data-color="#dfe2dd">
+            <div class="autoral-card__img" style="background:#dfe2dd"></div>
+            <span class="autoral-card__name">Padrão #04</span>
+          </div>
+
+          <div class="autoral-card autoral-card--l autoral-card--wide" data-title="Ensaio em risografia" data-text="Ensaio buscando o ruído da risografia em meio digital — quando o defeito vira linguagem." data-ratio="16/9" data-color="#e0dde6">
+            <div class="autoral-card__img" style="background:#e0dde6"></div>
+            <span class="autoral-card__name">Ensaio em risografia</span>
+          </div>
+
+          <div class="autoral-card autoral-card--m autoral-card--square" data-title="Estudo de cor" data-text="Estudo de cor — três tons em busca de tensão." data-ratio="1/1" data-color="#dfe6e0">
+            <div class="autoral-card__img" style="background:#dfe6e0"></div>
+            <span class="autoral-card__name">Estudo de cor</span>
+          </div>
+
+          <div class="autoral-card autoral-card--s autoral-card--portrait" data-title="Caderno gráfico" data-text="Caderno gráfico, página solta. Anotação em forma." data-ratio="3/4" data-color="#e2dcd9">
+            <div class="autoral-card__img" style="background:#e2dcd9"></div>
+            <span class="autoral-card__name">Caderno gráfico</span>
+          </div>
+
+          <div class="autoral-card autoral-card--m autoral-card--landscape" data-title="Notas visuais" data-text="Notas visuais — pensamento em rascunho, registrado sem editar." data-ratio="4/3" data-color="#e5e0e3">
+            <div class="autoral-card__img" style="background:#e5e0e3"></div>
+            <span class="autoral-card__name">Notas visuais</span>
+          </div>
+
+          <div class="autoral-card autoral-card--s autoral-card--square" data-title="Detalhe #11" data-text="Detalhe ampliado de outro projeto — fragmento como peça." data-ratio="1/1" data-color="#d9dbdd">
+            <div class="autoral-card__img" style="background:#d9dbdd"></div>
+            <span class="autoral-card__name">Detalhe #11</span>
+          </div>
+
+          <div class="autoral-card autoral-card--m autoral-card--tall" data-title="Sketch em vetor" data-text="Esboço em vetor, mantido com a aspereza do gesto. Antes da curva limpa." data-ratio="2/3" data-color="#e2e6e2">
+            <div class="autoral-card__img" style="background:#e2e6e2"></div>
+            <span class="autoral-card__name">Sketch em vetor</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <h2 class="contact__title">entre em contato</h2>
+    <div class="contact__links">
+      <a href="https://www.linkedin.com/in/luiz-paulo-lavall-a00a06206/" target="_blank" rel="noopener" class="contact__link">LinkedIn</a>
+      <a href="javascript:void(0)" class="contact__link contact__link--soon">Instagram</a>
+      <a href="https://wa.me/5562991760298?text=Ol%C3%A1%2C+Luiz%21+Vi+seu+site+e+gostaria+de+conversar+com+voc%C3%AA." target="_blank" rel="noopener" class="contact__link">62 99176 0298</a>
+      <a href="mailto:luizpaulo.lavall@gmail.com" class="contact__link">luizpaulo.lavall@gmail.com</a>
+    </div>
+  </section>
+  </div>
+
+  <div class="autoral-modal" id="autoralModal" role="dialog" aria-modal="true">
+    <div class="autoral-modal__inner">
+      <button class="autoral-modal__close" id="autoralModalClose" aria-label="Fechar">&#x2715;</button>
+      <div class="autoral-modal__img-wrap" id="autoralModalImg"></div>
+      <div class="autoral-modal__body">
+        <h2 class="autoral-modal__title" id="autoralModalTitle"></h2>
+        <p class="autoral-modal__text" id="autoralModalText"></p>
+        <div class="autoral-modal__nav" id="autoralModalNav">
+          <button class="autoral-modal__arrow" id="autoralModalPrev" aria-label="Anterior">&#8592;</button>
+          <div class="autoral-modal__dots" id="autoralModalDots"></div>
+          <button class="autoral-modal__arrow" id="autoralModalNext" aria-label="Próximo">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-logo">
+    <a href="index.html" aria-label="Inicio">
+    <svg viewBox="0 0 1356 214" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Luiz Lavall">
+      <g clip-path="url(#clip1)" fill="#141414">
+        <path d="M83.4279 172.663V72.8065C83.4279 50.3072 86.163 22.4993 86.163 5.0561C86.163 2.02244 84.5221 0 79.3249 0C62.3658 0 28.9944 10.6176 5.19711 13.1454C1.36733 13.6513 0 14.4096 0 16.1791C0 17.9486 1.09415 18.7073 4.10296 18.7073C7.38542 18.7073 12.5825 17.4432 19.9679 17.4432C25.7119 17.4432 28.7207 21.2352 28.7207 33.3698V172.663C28.4475 199.966 20.7884 205.78 4.6498 205.78C1.36734 205.78 0.273184 206.539 0.273184 208.561C0.273184 210.331 1.36734 210.836 4.6498 210.836C16.6855 210.836 30.0885 209.825 38.2944 209.825H73.5805C82.0601 209.825 95.1899 210.836 107.225 210.836C110.781 210.836 111.875 210.078 111.875 208.308C111.875 206.286 110.781 205.78 107.225 205.78C91.087 205.78 83.4279 199.966 83.4279 172.663Z"/>
+        <path d="M158.923 213.87C179.165 213.87 195.03 197.691 204.603 184.039C207.065 180.247 211.716 179.995 211.716 185.556C211.716 197.438 202.689 213.87 210.348 213.87C214.451 213.87 230.863 209.825 250.831 209.825C268.063 209.825 283.655 210.836 294.322 210.836C298.152 210.836 299.246 210.331 299.246 208.561C299.246 206.539 298.152 205.78 294.322 205.78C276.27 205.78 267.79 199.966 267.79 172.663V122.861C267.79 106.429 270.525 84.9412 270.525 73.8178C270.525 70.0259 268.611 68.0034 264.508 68.0034C236.881 68.0034 213.357 78.621 196.671 81.1493C193.935 81.6547 193.115 82.4134 193.115 84.1829C193.115 85.9525 193.662 86.7108 195.851 86.7108C198.038 86.7108 201.868 85.4466 207.065 85.4466C210.895 85.4466 213.083 86.7108 213.083 93.7893V163.815C213.083 176.708 199.133 185.303 190.653 185.303C182.447 185.303 179.165 179.995 179.165 166.596V122.608C179.165 106.429 181.9 84.9412 181.9 73.8178C181.9 70.0259 179.986 68.0034 175.882 68.0034H175.335C158.376 68.0034 124.732 78.621 100.934 81.1493C97.1045 81.6547 95.7367 82.4134 95.7367 84.1829C95.7367 85.9525 96.8308 86.7108 99.8397 86.7108C103.122 86.7108 108.319 85.4466 115.705 85.4466C121.449 85.4466 124.458 89.239 124.458 101.373V176.203C124.458 201.736 137.588 213.87 158.923 213.87Z"/>
+        <path d="M370.639 172.663V141.822C370.639 118.816 373.374 87.9749 373.374 75.0819C373.374 70.2787 370.912 68.0034 366.536 68.0034C349.303 68.2563 315.932 78.621 292.408 81.1492C288.579 81.6546 287.211 82.4134 287.211 84.1829C287.211 85.9524 288.305 86.7108 291.314 86.7108C294.596 86.7108 299.793 85.4466 307.179 85.4466C312.923 85.4466 315.932 89.239 315.932 101.373V172.663C315.658 199.966 307.179 205.78 289.125 205.78C285.57 205.78 284.202 206.539 284.202 208.561C284.202 210.331 285.57 210.836 289.125 210.836C302.529 210.836 317.3 209.825 326.6 209.825H359.698C368.998 209.825 383.768 210.836 397.171 210.836C401.001 210.836 402.095 210.078 402.095 208.308C402.095 206.286 401.001 205.78 397.171 205.78C379.118 205.78 370.639 199.966 370.639 172.663ZM311.555 32.1057C311.555 46.5153 323.044 56.3746 340.276 56.3746C357.236 56.3746 368.724 46.5153 368.724 32.1057C368.724 17.4433 357.236 7.58398 340.276 7.58398C323.044 7.58398 311.555 17.4433 311.555 32.1057Z"/>
+        <path d="M515.885 212.353C520.809 212.353 523.545 211.089 523.545 205.022C523.545 197.691 522.724 173.927 523.545 148.647C523.818 145.108 523.818 143.338 521.356 143.338C518.894 143.338 518.894 145.108 518.894 148.647C516.433 184.039 506.312 206.286 479.232 206.286H473.488C466.376 206.286 464.188 202.999 467.196 197.185L523.271 84.9412C527.648 76.3461 523.818 72.0483 518.347 72.0483C511.783 72.0483 494.003 73.3124 473.488 73.3124C441.484 73.3124 420.422 70.7841 413.037 70.7841C408.113 70.7841 405.378 72.0483 405.378 78.1156C405.378 86.4578 405.925 109.21 404.284 134.49C404.01 138.03 404.01 139.799 406.472 139.799C408.934 139.799 408.934 138.03 408.934 134.49C408.934 101.879 422.61 76.8514 449.69 76.8514H455.434C462.547 76.8514 464.734 80.138 461.726 85.9524L405.651 198.196C401.274 206.791 405.104 211.089 410.575 211.089C417.139 211.089 434.92 209.825 463.64 209.825C492.909 209.825 508.5 212.353 515.885 212.353Z"/>
+        <path d="M672.347 172.663V72.8066C672.347 50.3073 675.083 22.4994 675.083 5.05616C675.083 2.0225 673.441 6.10352e-05 668.244 6.10352e-05C651.285 6.10352e-05 617.914 10.6177 594.116 13.1455C590.287 13.6513 588.919 14.4096 588.919 16.1791C588.919 17.9487 590.013 18.7074 593.022 18.7074C596.305 18.7074 601.502 17.4433 608.887 17.4433C614.631 17.4433 617.64 21.2353 617.64 33.3699V172.663C617.367 199.966 609.708 205.78 593.569 205.78C590.287 205.78 589.193 206.539 589.193 208.561C589.193 210.331 590.287 210.836 593.569 210.836C605.605 210.836 619.008 209.825 627.214 209.825H662.5C670.98 209.825 684.109 210.836 696.145 210.836C699.7 210.836 700.795 210.078 700.795 208.308C700.795 206.286 699.7 205.78 696.145 205.78C680.006 205.78 672.347 199.966 672.347 172.663Z"/>
+        <path d="M735.534 213.87C756.049 213.87 765.622 202.494 774.102 177.972C776.017 172.158 782.035 173.674 780.667 179.236C775.743 198.702 794.89 213.617 815.406 213.617C844.4 213.617 859.718 201.483 862.18 173.927C862.454 171.652 861.906 170.641 860.265 170.641C858.898 170.641 858.077 171.652 857.803 173.927C855.341 190.106 847.956 195.415 843.579 195.415C838.382 195.415 834.006 192.382 834.006 184.039C834.006 161.793 835.374 139.293 835.374 117.047C835.374 85.9524 814.038 68.0034 773.008 68.0034C733.346 68.0034 707.907 87.4691 707.907 108.705C707.907 120.839 716.386 128.929 732.251 128.929C747.843 128.929 755.775 120.839 755.775 109.968C755.775 100.362 752.219 94.8005 752.219 89.4915C752.219 78.8739 756.596 75.8402 765.076 75.8402C774.922 75.8402 779.573 81.4022 779.573 110.221V117.553C779.573 125.642 774.922 131.709 766.717 134.238C731.978 145.108 699.154 157.495 699.154 182.522C699.154 202.999 715.565 213.87 735.534 213.87ZM751.672 165.332C751.672 156.989 754.134 145.361 767.264 137.271C775.196 133.985 779.573 136.513 779.573 144.602V161.54C779.573 169.882 768.631 178.983 761.519 178.983C756.322 178.983 751.672 176.203 751.672 165.332Z"/>
+        <path d="M961.199 108.957L947.523 149.911C945.061 157.748 942.326 157.748 939.864 149.911L926.461 108.957C919.349 87.2166 924.272 76.8515 943.967 76.5985C963.388 76.8515 968.312 87.2166 961.199 108.957ZM834.006 74.829C834.006 76.8515 834.553 77.3573 837.288 77.3573C849.871 77.3573 859.171 82.6658 868.745 108.452L905.125 207.802C906.493 211.594 909.775 213.87 914.152 213.87H924.82C929.196 213.87 932.478 211.594 933.572 207.802L965.85 108.957C974.603 82.6659 983.629 77.3573 998.126 77.3573C1000.59 77.3573 1001.68 76.5986 1001.68 74.5766C1001.68 72.8066 1000.59 72.3012 998.126 72.3012C991.562 72.3012 983.903 73.0595 976.244 73.3124C963.935 73.0595 957.37 72.8066 944.788 72.8066H942.599C931.384 72.8066 921.264 73.3124 902.937 73.3124H863.548C856.983 73.3124 846.589 72.3012 837.288 72.3012C834.553 72.3012 834.006 73.0595 834.006 74.829Z"/>
+        <path d="M1022.2 213.87C1042.71 213.87 1052.29 202.494 1060.77 177.972C1062.68 172.158 1068.7 173.674 1067.33 179.236C1062.41 198.702 1081.55 213.617 1102.07 213.617C1131.06 213.617 1146.38 201.483 1148.84 173.927C1149.12 171.652 1148.57 170.641 1146.93 170.641C1145.56 170.641 1144.74 171.652 1144.47 173.927C1142.01 190.106 1134.62 195.415 1130.24 195.415C1125.05 195.415 1120.67 192.382 1120.67 184.039C1120.67 161.793 1122.04 139.293 1122.04 117.047C1122.04 85.9524 1100.7 68.0034 1059.67 68.0034C1020.01 68.0034 994.571 87.4691 994.571 108.705C994.571 120.839 1003.05 128.929 1018.92 128.929C1034.51 128.929 1042.44 120.839 1042.44 109.968C1042.44 100.362 1038.88 94.8005 1038.88 89.4915C1038.88 78.8739 1043.26 75.8402 1051.74 75.8402C1061.59 75.8402 1066.24 81.4022 1066.24 110.221V117.553C1066.24 125.642 1061.59 131.709 1053.38 134.238C1018.64 145.108 985.818 157.495 985.818 182.522C985.818 202.999 1002.23 213.87 1022.2 213.87ZM1038.34 165.332C1038.34 156.989 1040.8 145.361 1053.93 137.271C1061.86 133.985 1066.24 136.513 1066.24 144.602V161.54C1066.24 169.882 1055.3 178.983 1048.18 178.983C1042.99 178.983 1038.34 176.203 1038.34 165.332Z"/>
+        <path d="M1221.33 172.663V72.8066C1221.33 50.3073 1224.07 22.4994 1224.07 5.05616C1224.07 2.0225 1222.42 6.10352e-05 1217.23 6.10352e-05C1200.27 6.10352e-05 1166.9 10.6177 1143.1 13.1455C1139.27 13.6513 1137.9 14.4096 1137.9 16.1791C1137.9 17.9487 1139 18.7074 1142.01 18.7074C1145.29 18.7074 1150.49 17.4433 1157.87 17.4433C1163.61 17.4433 1166.62 21.2353 1166.62 33.3699V172.663C1166.35 199.966 1158.69 205.78 1142.55 205.78C1139.27 205.78 1138.18 206.539 1138.18 208.561C1138.18 210.331 1139.27 210.836 1142.55 210.836C1154.59 210.836 1167.99 209.825 1176.2 209.825H1211.48C1219.96 209.825 1233.09 210.836 1245.13 210.836C1248.68 210.836 1249.78 210.078 1249.78 208.308C1249.78 206.286 1248.68 205.78 1245.13 205.78C1228.99 205.78 1221.33 199.966 1221.33 172.663Z"/>
+        <path d="M1327.46 172.663V72.8066C1327.46 50.3073 1330.2 22.4994 1330.2 5.05616C1330.2 2.0225 1328.56 6.10352e-05 1323.36 6.10352e-05C1306.4 6.10352e-05 1273.03 10.6177 1249.23 13.1455C1245.4 13.6513 1244.03 14.4096 1244.03 16.1791C1244.03 17.9487 1245.13 18.7074 1248.14 18.7074C1251.42 18.7074 1256.62 17.4433 1264 17.4433C1269.75 17.4433 1272.76 21.2353 1272.76 33.3699V172.663C1272.48 199.966 1264.82 205.78 1248.68 205.78C1245.4 205.78 1244.31 206.539 1244.31 208.561C1244.31 210.331 1245.4 210.836 1248.68 210.836C1260.72 210.836 1274.12 209.825 1282.33 209.825H1317.61C1326.09 209.825 1339.22 210.836 1351.26 210.836C1354.82 210.836 1355.91 210.078 1355.91 208.308C1355.91 206.286 1354.82 205.78 1351.26 205.78C1335.12 205.78 1327.46 199.966 1327.46 172.663Z"/>
+      </g>
+      <defs>
+        <clipPath id="clip1">
+          <rect width="1355.91" height="213.87" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </footer>
+
+  <script>
+    (function () {
+      var RATIO_CLASS = {'3/4':'portrait','1/1':'square','4/3':'landscape','2/3':'tall','16/9':'wide'};
+      var SIZES = ['m','l','m','s','m','xl','m','l'];
+
+      function isVid(url) { return /\.(mp4|webm|mov|ogg)$/i.test(url || ''); }
+
+      var lazyObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          el.style.backgroundImage    = el.dataset.lazyBg;
+          el.style.backgroundSize     = el.dataset.lazyBgSize || 'cover';
+          el.style.backgroundPosition = el.dataset.lazyBgPos  || 'center';
+          delete el.dataset.lazyBg;
+          lazyObserver.unobserve(el);
+        });
+      }, { rootMargin: '0px 400px' });
+
+      function makeCard(item, idx) {
+        var sz = SIZES[idx % SIZES.length];
+        var sh = RATIO_CLASS[item.ratio] || 'portrait';
+        var d = document.createElement('div');
+        d.className = 'autoral-card autoral-card--'+sz+' autoral-card--'+sh;
+        d.dataset.title = item.title || '';
+        d.dataset.text  = item.text  || '';
+        d.dataset.ratio = item.ratio || '3/4';
+        d.dataset.color = item.color || '#e4e0d8';
+        // suporte a images[] e image (retrocompatibilidade)
+        var images = (item.images && item.images.length) ? item.images : (item.image ? [item.image] : []);
+        d.dataset.images = JSON.stringify(images);
+        var thumbMedia = images[0] || '';
+        var MH = window.MediaHelper;
+        var thumb = MH ? MH.getUrl(thumbMedia) : thumbMedia;
+        var thumbAdj = MH ? MH.getAdjust(thumbMedia) : { scale:1,x:0,y:0 };
+        var thumbHasAdj = MH ? MH.hasAdjust(thumbMedia) : false;
+        var img = document.createElement('div');
+        img.className = 'autoral-card__img';
+        img.style.background = item.color || '#e4e0d8';
+        if (thumb) {
+          if (isVid(thumb)) {
+            var v = MH ? MH.createVideo(thumb) : (function(){var x=document.createElement('video');x.src='/'+thumb;x.autoplay=true;x.loop=true;x.muted=true;x.playsInline=true;return x;})();
+            v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit';
+            if (thumbHasAdj && MH) { v.style.transform = MH.adjustToCss(thumbAdj); v.style.transformOrigin='center'; }
+            img.style.backgroundImage='url("'+((MH&&MH.posterFor(thumb))||('/'+thumb+'.poster.jpg'))+'")';
+            img.style.backgroundSize='cover'; img.style.backgroundPosition='center';
+            img.style.position='relative'; img.appendChild(v);
+          } else {
+            var bgSize = 'cover';
+            var bgPos  = 'center';
+            if (thumbHasAdj && MH) {
+              var bg = MH.adjustToBackgroundCss(thumbAdj);
+              bgSize = bg.backgroundSize;
+              bgPos  = bg.backgroundPosition;
+            }
+            img.dataset.lazyBg     = 'url("/'+thumb+'")';
+            img.dataset.lazyBgSize = bgSize;
+            img.dataset.lazyBgPos  = bgPos;
+            lazyObserver.observe(img);
+          }
+        }
+        d.appendChild(img);
+        var nm = document.createElement('span');
+        nm.className='autoral-card__name'; nm.textContent=item.title||'';
+        d.appendChild(nm);
+        return d;
+      }
+
+      function duplicateTrack(track) {
+        Array.from(track.children).forEach(function(card) {
+          var clone = card.cloneNode(true);
+          clone.setAttribute('aria-hidden','true');
+          clone.querySelectorAll('[data-lazy-bg]').forEach(function(el) {
+            lazyObserver.observe(el);
+          });
+          track.appendChild(clone);
+        });
+      }
+
+      function initModal() {
+        var modal  = document.getElementById('autoralModal');
+        var mImg   = document.getElementById('autoralModalImg');
+        var mTitle = document.getElementById('autoralModalTitle');
+        var mText  = document.getElementById('autoralModalText');
+        var mClose = document.getElementById('autoralModalClose');
+        var mNav   = document.getElementById('autoralModalNav');
+        var mDots  = document.getElementById('autoralModalDots');
+        var mPrev  = document.getElementById('autoralModalPrev');
+        var mNext  = document.getElementById('autoralModalNext');
+
+        var carousel = { images: [], index: 0 };
+
+        function getImages(card) {
+          try {
+            var arr = JSON.parse(card.dataset.images || '[]');
+            if (Array.isArray(arr) && arr.length) return arr.filter(Boolean);
+          } catch(e) {}
+          return [];
+        }
+
+        function showMedia(media) {
+          var ov = mImg.querySelector('video'), oi = mImg.querySelector('img');
+          if (ov) { ov.pause(); ov.remove(); } if (oi) oi.remove();
+          var MH = window.MediaHelper;
+          var url = MH ? MH.getUrl(media) : media;
+          if (!url) return;
+          var adjust = MH ? MH.getAdjust(media) : { scale:1,x:0,y:0 };
+          var hasAdj = MH ? MH.hasAdjust(media) : false;
+          if (isVid(url)) {
+            var v = MH ? MH.createVideo(url, { lazy: false }) : (function(){var x=document.createElement('video');x.src='/'+url;x.autoplay=true;x.loop=true;x.muted=true;x.playsInline=true;return x;})();
+            v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit';
+            if (hasAdj && MH) { v.style.transform = MH.adjustToCss(adjust); v.style.transformOrigin='center'; }
+            mImg.style.position='relative'; mImg.appendChild(v);
+          } else {
+            var i=document.createElement('img'); i.src='/'+url;
+            i.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block';
+            if (hasAdj && MH) { i.style.objectPosition = (50 - adjust.x) + '% ' + (50 - adjust.y) + '%'; }
+            mImg.style.position='relative'; mImg.appendChild(i);
+          }
+        }
+
+        function updateNav() {
+          var n = carousel.images.length;
+          if (n <= 1) { mNav.style.display = 'none'; return; }
+          mNav.style.display = 'flex';
+          mDots.innerHTML = '';
+          carousel.images.forEach(function(_, i) {
+            var dot = document.createElement('button');
+            dot.className = 'autoral-modal__dot' + (i === carousel.index ? ' is-active' : '');
+            dot.setAttribute('aria-label', 'Mídia ' + (i + 1));
+            (function(idx){ dot.addEventListener('click', function() {
+              carousel.index = idx; showMedia(carousel.images[idx]); updateNav();
+            }); })(i);
+            mDots.appendChild(dot);
+          });
+        }
+
+        function go(dir) {
+          if (carousel.images.length <= 1) return;
+          carousel.index = (carousel.index + dir + carousel.images.length) % carousel.images.length;
+          showMedia(carousel.images[carousel.index]);
+          updateNav();
+        }
+
+        var rowsEl = document.querySelector('.autoral-rows');
+        if (rowsEl) {
+          rowsEl.addEventListener('click', function(e) {
+            if (Date.now() - lastDragEndTime < 300) return;
+            var card = e.target.closest('.autoral-card');
+            if (!card) return;
+            carousel.images = getImages(card);
+            carousel.index  = 0;
+            mImg.style.aspectRatio = card.dataset.ratio || '4/3';
+            mImg.style.background  = card.dataset.color || '#ededed';
+            mTitle.textContent = card.dataset.title || '';
+            mText.textContent  = card.dataset.text  || '';
+            showMedia(carousel.images[0] || '');
+            updateNav();
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          });
+        }
+
+        if (mPrev) mPrev.addEventListener('click', function() { go(-1); });
+        if (mNext) mNext.addEventListener('click', function() { go(1); });
+
+        function closeModal() {
+          modal.classList.remove('is-open');
+          document.body.style.overflow = '';
+          var ov = mImg.querySelector('video'); if (ov) ov.pause();
+        }
+        if (mClose) mClose.addEventListener('click', closeModal);
+        if (modal)  modal.addEventListener('click', function(e){ if(e.target===modal)closeModal(); });
+        document.addEventListener('keydown', function(e){
+          if (!modal.classList.contains('is-open')) return;
+          if (e.key === 'Escape')      closeModal();
+          if (e.key === 'ArrowLeft')   go(-1);
+          if (e.key === 'ArrowRight')  go(1);
+        });
+      }
+
+      var lastDragEndTime = 0;
+
+      function initDrag() {
+        document.querySelectorAll('.autoral-row').forEach(function(row) {
+          var track = row.querySelector('.autoral-track');
+          if (!track) return;
+          var isRight = row.classList.contains('autoral-row--right');
+          var dragging = false, moved = false;
+          var startClientX = 0, startOffsetX = 0;
+          var currentX = 0, speed = 0;
+          var isManual = false, lastTime = 0, rafId = null;
+
+          function hw() { return track.scrollWidth / 2 || 1; }
+          function wrap(x) {
+            var h = hw();
+            x = x % h;
+            if (x > 0) x -= h;
+            return x;
+          }
+          function getComputedX() {
+            var m = new DOMMatrix(window.getComputedStyle(track).transform);
+            return isNaN(m.m41) ? 0 : m.m41;
+          }
+          function getSpeedPxPerMs() {
+            var dur = parseFloat(window.getComputedStyle(track).animationDuration) || 90;
+            return hw() / (dur * 1000);
+          }
+          function startManual() {
+            if (isManual) return;
+            isManual = true;
+            currentX = getComputedX();
+            speed = getSpeedPxPerMs();
+            track.style.animation = 'none';
+            track.style.transform = 'translate3d(' + currentX + 'px,0,0)';
+            lastTime = performance.now();
+            function loop(now) {
+              if (!isManual) return;
+              var dt = Math.min(now - lastTime, 100);
+              lastTime = now;
+              if (!dragging && !row.matches(':hover')) {
+                var dir = isRight ? 1 : -1;
+                currentX = wrap(currentX + dir * speed * dt);
+                track.style.transform = 'translate3d(' + currentX + 'px,0,0)';
+              }
+              rafId = requestAnimationFrame(loop);
+            }
+            rafId = requestAnimationFrame(loop);
+          }
+
+          function onStart(clientX) {
+            startManual();
+            dragging = true; moved = false;
+            startClientX = clientX;
+            startOffsetX = currentX;
+            row.classList.add('is-dragging');
+          }
+          function onMove(clientX) {
+            if (!dragging) return;
+            var dx = clientX - startClientX;
+            if (Math.abs(dx) > 5) moved = true;
+            currentX = wrap(startOffsetX + dx);
+            track.style.transform = 'translate3d(' + currentX + 'px,0,0)';
+          }
+          function onEnd() {
+            if (!dragging) return;
+            dragging = false;
+            row.classList.remove('is-dragging');
+            if (moved) lastDragEndTime = Date.now();
+          }
+
+          row.addEventListener('mousedown', function(e) {
+            if (e.button !== 0) return;
+            onStart(e.clientX);
+            e.preventDefault();
+          });
+          document.addEventListener('mousemove', function(e) { onMove(e.clientX); });
+          document.addEventListener('mouseup', onEnd);
+
+          row.addEventListener('touchstart', function(e) {
+            if (e.touches.length !== 1) return;
+            onStart(e.touches[0].clientX);
+          }, { passive: true });
+          document.addEventListener('touchmove', function(e) {
+            if (dragging && e.touches.length) onMove(e.touches[0].clientX);
+          }, { passive: true });
+          document.addEventListener('touchend', onEnd);
+        });
+      }
+      function fallback() {
+        document.querySelectorAll('.autoral-track').forEach(duplicateTrack);
+        initModal();
+        initDrag();
+      }
+
+      fetch('/api/autoral')
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          var items = (d && d.items) ? d.items : [];
+          if (!items.length) { fallback(); return; }
+          var tracks = document.querySelectorAll('.autoral-track');
+          var n = items.length;
+          tracks.forEach(function(track, ti) {
+            track.innerHTML = '';
+            var offset = Math.floor(ti * n / tracks.length);
+            var rotated = items.slice(offset).concat(items.slice(0, offset));
+            rotated.forEach(function(item, idx) { track.appendChild(makeCard(item, idx)); });
+            duplicateTrack(track);
+          });
+          initModal();
+          initDrag();
+        })
+        .catch(fallback);
+    })();
+  </script>
+  <script>
+  (function(){
+    var btn=document.querySelector(".nav__hamburger");
+    if(!btn)return;
+    btn.addEventListener("click",function(){
+      var nav=this.closest(".nav");
+      var open=nav.classList.toggle("nav--open");
+      this.setAttribute("aria-expanded",String(open));
+    });
+    document.querySelectorAll(".nav__left a").forEach(function(a){
+      a.addEventListener("click",function(){
+        var nav=document.querySelector(".nav");
+        if(nav){nav.classList.remove("nav--open");}
+        var b=document.querySelector(".nav__hamburger");
+        if(b){b.setAttribute("aria-expanded","false");}
+      });
+    });
+  })();
+  (function(){
+    var wrap=document.querySelector('.nav__contact-wrap');
+    var cBtn=document.querySelector('.nav__contact-btn');
+    if(!wrap||!cBtn)return;
+    cBtn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=wrap.classList.toggle('is-open');
+      cBtn.setAttribute('aria-expanded',String(open));
+    });
+    document.addEventListener('click',function(e){
+      if(!wrap.contains(e.target)){wrap.classList.remove('is-open');cBtn.setAttribute('aria-expanded','false');}
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'){wrap.classList.remove('is-open');cBtn.setAttribute('aria-expanded','false');}
+    });
+    document.querySelectorAll('.nav__dropdown-copy,.contact__copy').forEach(function(b){
+      b.addEventListener('click',function(e){
+        e.stopPropagation();
+        var text=this.dataset.copy,self=this,orig=self.innerHTML;
+        navigator.clipboard.writeText(text).then(function(){
+          self.classList.add('copied');
+          self.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+          setTimeout(function(){self.classList.remove('copied');self.innerHTML=orig;},1500);
+        });
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

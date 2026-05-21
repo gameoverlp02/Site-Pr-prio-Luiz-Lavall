@@ -1,0 +1,6 @@
+{
+  "buildCommand": "echo 'Build complete'",
+  "outputDirectory": ".",
+  "public": false,
+  "regions": ["sfo1"]
+}

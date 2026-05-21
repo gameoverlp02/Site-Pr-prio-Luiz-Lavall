@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.local
+data/
+uploads/
+admin/
+.DS_Store
+*.log
+server.log
+abrir-site.bat
+.claude/
