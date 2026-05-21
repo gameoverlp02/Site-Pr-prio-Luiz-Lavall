@@ -1,0 +1,7 @@
+server.js
+admin/
+data/
+uploads/
+abrir-site.bat
+*.log
+server.log

@@ -1,16 +1,15 @@
 {
-  "buildCommand": "echo 'Build complete'",
+  "version": 2,
+  "buildCommand": "echo 'done'",
   "outputDirectory": ".",
-  "regions": ["gru1"],
+  "framework": null,
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*\\.html)", "dest": "/$1" },
-    { "src": "/(.*\\.css)", "dest": "/$1" },
-    { "src": "/(.*\\.js)", "dest": "/$1" },
-    { "src": "/(.*\\.woff2?)", "dest": "/$1" },
-    { "src": "/(.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.gif|.*\\.svg|.*\\.webp|.*\\.ico)", "dest": "/$1" },
-    { "src": "/(.*\\.mp4|.*\\.webm|.*\\.mov|.*\\.ogg)", "dest": "/$1" },
-    { "src": "/", "dest": "/index.html" },
+    { "src": "/api/portfolio", "dest": "/api/portfolio.js" },
+    { "src": "/api/projetos", "dest": "/api/projetos.js" },
+    { "src": "/api/sobre", "dest": "/api/sobre.js" },
+    { "src": "/api/autoral", "dest": "/api/autoral.js" },
+    { "src": "/api/pensamentos", "dest": "/api/pensamentos.js" },
+    { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
