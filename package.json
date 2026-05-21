@@ -12,7 +12,7 @@
   "author": "Luiz Lavall",
   "license": "MIT",
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "vercel": {
     "functions": {
