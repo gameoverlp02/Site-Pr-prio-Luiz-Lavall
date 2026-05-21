@@ -3,6 +3,11 @@
   "buildCommand": "echo 'done'",
   "outputDirectory": ".",
   "framework": null,
+  "functions": {
+    "api/*.js": {
+      "includeFiles": "data/**"
+    }
+  },
   "routes": [
     { "src": "/api/portfolio", "dest": "/api/portfolio.js" },
     { "src": "/api/projetos", "dest": "/api/projetos.js" },
