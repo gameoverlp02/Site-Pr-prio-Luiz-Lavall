@@ -231,10 +231,6 @@
           "image": "uploads/1779298805837_025e515ee670d8aa.webp"
         },
         {
-          "type": "wide",
-          "image": "uploads/1779298815445_1b0f4a35b316590d.webp"
-        },
-        {
           "type": "pair",
           "images": [
             "uploads/1779298894011_2257592739c7b95e.webp",
@@ -245,8 +241,18 @@
           "type": "triple",
           "images": [
             "uploads/1779298767277_88c81574176a1059.webp",
-            "uploads/1779298769925_dd519e10339db35b.webp",
-            "uploads/1779298773352_beecb910ebcc14a3.webp"
+            {
+              "url": "uploads/1779298769925_dd519e10339db35b.webp",
+              "scale": 1.07,
+              "x": -0.8221225710014946,
+              "y": 0
+            },
+            {
+              "url": "uploads/1779298773352_beecb910ebcc14a3.webp",
+              "scale": 1,
+              "x": -13.442684766214178,
+              "y": 0
+            }
           ]
         },
         {
@@ -346,11 +352,11 @@
         },
         {
           "type": "wide",
-          "image": "uploads/1779299742819_9e9a68c2860b182c.webp"
+          "image": "uploads/1779299752174_79a0e27596b29e8e.webp"
         },
         {
           "type": "wide",
-          "image": "uploads/1779299752174_79a0e27596b29e8e.webp"
+          "image": "uploads/1779299742819_9e9a68c2860b182c.webp"
         },
         {
           "type": "wide",
