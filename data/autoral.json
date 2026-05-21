@@ -1,0 +1,218 @@
+{
+  "items": [
+    {
+      "id": "a1",
+      "title": "Cartaz de virada de ano - Destrua Isso.",
+      "text": "Cartaz experimento utilizando a ferramenta que criei, chamada Destrua Isso., disponível em www.destruaisso.com.br",
+      "color": "#e4e0d8",
+      "ratio": "3/4",
+      "images": [
+        "uploads/1779135060882_5edd6576586cfc55.webp"
+      ]
+    },
+    {
+      "id": "a3",
+      "title": "Desobdeça - Cartaz A3 em Risografia",
+      "text": "No detalhe:\n\n\"Primeiro é nunca matar\nSegundo, jamais ferir\nTerceiro, estar sempre atento\nQuarto, sempre se unir\nQuinto, desobediência\nàs ordens de vossa excelência \nque podem nos destruir.\"\n- Cantata para Alagamar",
+      "color": "#e4dfe6",
+      "ratio": "3/4",
+      "images": [
+        {
+          "url": "uploads/1779312216506_7ce180147da88ea0.webp",
+          "scale": 1.34,
+          "x": 0,
+          "y": -7.28691913460823
+        },
+        "uploads/1779312264426_5a2e0f31e03188b3.webp",
+        "uploads/1779312268654_2bb6e593351dc4cd.webp"
+      ]
+    },
+    {
+      "id": "a4",
+      "title": "Símbolo para a logo do Coletivo Cacique Merong",
+      "text": "O coletivo precisava de uma logo que referenciasse a luta coletiva e sua interseção com territórios, mineração e defesa indígena.\n\nNo símbolo, suas formas simulam a vista em um mapa por cima. Há a presença de uma flecha surgindo no braço e um leve desenho da Serra do Curral na base do braço.",
+      "color": "#e8e2df",
+      "ratio": "1/1",
+      "images": [
+        "uploads/1779312387338_d71132642814a1f3.webp",
+        {
+          "url": "uploads/1779312402953_8c981d1929aa13b9.webp",
+          "scale": 1,
+          "x": 19.48576502095948,
+          "y": 0
+        }
+      ]
+    },
+    {
+      "id": "a5",
+      "title": "Calendário Pinha! 2026",
+      "text": "Todo ano, a Pinha! Coletiva cria um calendário. As ilustrações são da Lua Plaza e a diagramação de minha autoria.",
+      "color": "#e8e4df",
+      "ratio": "2/3",
+      "images": [
+        "uploads/1779312515855_395a45ce91568b28.webp",
+        "uploads/1779312534500_9cf046e4a2ee03d7.webp"
+      ]
+    },
+    {
+      "id": "a6",
+      "title": "Logomarca para Associação Pata da Loba",
+      "text": "A Associação Pata da Loba é uma associação de mulheres artesãs. A logomarca foi criada com base nas letras históricas do distrito de Lobo Leite, em Congonhas - MG",
+      "color": "#dde0e4",
+      "ratio": "16/9",
+      "images": [
+        {
+          "url": "uploads/1779313372671_c3be097ade926501.webp",
+          "scale": 1.36,
+          "x": 0,
+          "y": 0
+        },
+        "uploads/1779313387819_c6de12a86e44f220.webp",
+        {
+          "url": "uploads/1779313392039_c5103ed87991a09f.webp",
+          "scale": 1,
+          "x": 0,
+          "y": -12.69642857142857
+        },
+        "uploads/1779313402896_b3947538a4a00c7b.webp",
+        "uploads/1779313667838_805f4b5bfa6f1772.webp"
+      ]
+    },
+    {
+      "id": "a7",
+      "title": "A Esperança é Coletiva - Cartaz A3 em Risografia",
+      "text": "De todos os cartazes que já fiz para a venda, esse foi o que vendeu mais rápido. As fotos são de militantes da Unidade Popular e a fonte do Diego Maldonado.",
+      "color": "#ddd9d3",
+      "ratio": "2/3",
+      "images": [
+        "uploads/1779312605084_8f9ec465d14e2898.webp"
+      ]
+    },
+    {
+      "id": "a8",
+      "title": "Experimentação - Destrua Isso.",
+      "text": "Um card produzido inteiramente no Destrua Isso. para testar as capacidades de edição da aplicação web.",
+      "color": "#dfe4e0",
+      "ratio": "2/3",
+      "images": [
+        "uploads/1779312771376_3577e66a43f2ee20.webp"
+      ]
+    },
+    {
+      "id": "mpelcsu81i0k",
+      "title": "Logomarca para a Capture",
+      "text": "Capture é uma empresa de produção audiovisual focado no público corporativo",
+      "color": "#e8e4de",
+      "ratio": "3/4",
+      "images": [
+        "uploads/1779313589157_cd8928d67360fa74.webp",
+        "uploads/1779313593174_eb1503dfcb840de4.webp"
+      ]
+    },
+    {
+      "id": "mpelctfteix6",
+      "title": "Calendário Pinha! 2024 em Risografia",
+      "text": "Calendário produzido com ilustrações da Lua Plaza e diagramação de minha autoria.",
+      "color": "#e8e4de",
+      "ratio": "2/3",
+      "images": [
+        {
+          "url": "uploads/1779313824316_b9e6f651655c85af.webp",
+          "scale": 1.24,
+          "x": 50,
+          "y": 7.930697901415327
+        },
+        "uploads/1779313901618_59436ddbf3d955fa.webp"
+      ]
+    },
+    {
+      "id": "mpelctvx006y",
+      "title": "Planner do Movimento Negro 2024",
+      "text": "Em 2024, fui convidado para fazer o planner do movimento negro junto com movimentos sociais de Belo Horizonte.",
+      "color": "#e8e4de",
+      "ratio": "16/9",
+      "images": [
+        "uploads/1779313633480_279010437fa1c840.webp",
+        "uploads/1779313637659_d0026a4685e75cf9.webp",
+        "uploads/1779313690868_e660c8dc9a30fe53.webp",
+        {
+          "url": "uploads/1779313702072_71c0148c98c56bb3.webp",
+          "scale": 1,
+          "x": 0,
+          "y": 24.589285714285715
+        }
+      ]
+    },
+    {
+      "id": "mpelcu7v928i",
+      "title": "Redesign para a proveRH",
+      "text": "A proveRH é uma consultoria de RH com mais de uma década de existência",
+      "color": "#e8e4de",
+      "ratio": "16/9",
+      "images": [
+        "uploads/1779315058469_766944f1528ddb4e.webp",
+        {
+          "url": "uploads/1779315068918_b73d372ccd5ec0de.webp",
+          "scale": 1.07,
+          "x": -12.198474770166845,
+          "y": -39.682539682539634
+        },
+        "uploads/1779315074760_71d9d16dc46c2d92.webp",
+        "uploads/1779315089683_b74cc424ac3582c3.webp",
+        "uploads/1779315094934_d29828b30718b700.webp"
+      ]
+    },
+    {
+      "id": "mpembg0pe59v",
+      "title": "Nsurre - Série em pin-hole em ambientes de baixa luminosidade",
+      "text": "",
+      "color": "#e8e4de",
+      "ratio": "3/4",
+      "images": [
+        "uploads/1779315190253_5fe08afd28a2a5bf.webp",
+        "uploads/1779315196668_495061138e2487e2.webp",
+        "uploads/1779315201196_da45b6eb56ff7542.webp",
+        "uploads/1779315205717_55dca0c367a4bd4c.webp"
+      ]
+    },
+    {
+      "id": "mpemeysiumyk",
+      "title": "Criação de marca para a PluralizaBH",
+      "text": "Marca de consultoria em diversidade para empresas",
+      "color": "#e8e4de",
+      "ratio": "16/9",
+      "images": [
+        "uploads/1779315356314_45a1d8bc88f78fd1.webp",
+        "uploads/1779315368412_0d931ae3dfcc1b19.webp",
+        "uploads/1779315374462_2651bc5a00a90444.webp",
+        "uploads/1779315383345_448b645ccb2f7bad.webp",
+        "uploads/1779315387662_2904dd8ef98f34ae.webp"
+      ]
+    },
+    {
+      "id": "mpemjj5gay82",
+      "title": "Logomarca para F Ladeira - Engenharia",
+      "text": "",
+      "color": "#e8e4de",
+      "ratio": "16/9",
+      "images": [
+        "uploads/1779316002466_b61dc6f047606310.webp",
+        "uploads/1779316009824_be93de0481c4d468.webp",
+        "uploads/1779316014436_1fa1f6f8b08b57c6.webp"
+      ]
+    },
+    {
+      "id": "mpenk3se7dfl",
+      "title": "Estação Horizonte - Identidade Visual",
+      "text": "Estação Horizonte é uma floricultura afetiva em Belo Horizonte",
+      "color": "#e8e4de",
+      "ratio": "16/9",
+      "images": [
+        "uploads/1779317277000_c89efffaa33d6053.webp",
+        "uploads/1779317291116_49f3ebe48a62bb38.webp",
+        "uploads/1779317315141_b47d1aea6013934b.webp",
+        "uploads/1779317319155_f834803eea94dee7.webp"
+      ]
+    }
+  ]
+}

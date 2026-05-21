@@ -1,0 +1,366 @@
+{
+  "items": [
+    {
+      "id": "geraes-cafe",
+      "title": "Geraes Café",
+      "challenge": "Como fazer uma cafeteria, em Belo Horizonte, remetendo ao amor dos donos pelas terras mineiras, sem parecer genérico? Afinal, café e pão de queijo, que é o básico de uma cafeteria em Belo Horizonte, já é algo extremamente mineiro.",
+      "solution": "Descer a fundo nas referências mineiras, principalmente dos discos do Milton Nascimento, grande exemplo para os sócios, enquanto fazíamos uma releitura de todos os símbolos associadas às terras mineiras, extrapolando para uma evocação do nacional e toda latinidade que esse café busca, foi a melhor saída para elaboração do projeto. Tudo feito à quatro mãos com os sócios para a concretização desse sonho que eles tinham.",
+      "outcome": "A Geras Café já foi lançada e está localizada na Rua dos Otoni, 416 - Santa Efigênia. Tornando-se um dos pontos clássicos do turismo local no bairro.",
+      "blocks": [
+        {
+          "type": "wide",
+          "image": "uploads/1779297458828_dbd45d7fb3e9971c.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297609168_ed455e10bb935cdb.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297811113_5323a8b3de45cc4b.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297814407_5a759cf453e790d8.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297531377_eab3561a3ac77b52.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297543305_866ddea51e2f4fbd.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297596743_ed836bac5c68a23d.webp"
+        },
+        {
+          "type": "pano",
+          "image": "uploads/1779297572931_05a2270830bc1637.webp"
+        },
+        {
+          "type": "pair",
+          "images": [
+            {
+              "url": "uploads/1779311469605_396586ad9c4b5eda.webp",
+              "scale": 1,
+              "x": 0.2986725663716814,
+              "y": 0
+            },
+            {
+              "url": "uploads/1779311473981_d3bd987bbe6c44dd.webp",
+              "scale": 1,
+              "x": -4.181415929203539,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297765995_31c08b66145ac757.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297779322_dd85675bf0f3866c.webp"
+        },
+        {
+          "type": "pair-square",
+          "images": [
+            "uploads/1779297748204_04deaa2ee643e2ce.webp",
+            "uploads/1779297750550_b45975058c3c18eb.webp"
+          ]
+        },
+        {
+          "type": "pair-square",
+          "images": [
+            "uploads/1779297752932_87ffcd9c336bd462.webp",
+            "uploads/1779297756384_06536a60ef1b5972.webp"
+          ]
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297828967_9c188a15d93338a8.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779303492279_e40e05aa7389e066.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297591199_11b477740a987ea1.webp"
+        }
+      ]
+    },
+    {
+      "id": "b10burger",
+      "title": "B10 BURGER",
+      "challenge": "",
+      "solution": "",
+      "outcome": "",
+      "blocks": [
+        {
+          "type": "wide",
+          "image": ""
+        },
+        {
+          "type": "pair",
+          "images": [
+            "",
+            ""
+          ]
+        }
+      ],
+      "kind": "site",
+      "previews": [
+        "uploads/1779288049331_6e019bed7a739a68.webp",
+        "uploads/1779288077556_1b558c6e9a7856f8.webp",
+        "uploads/1779288080446_1a53385984196651.webp",
+        "uploads/1779288085426_039b9b7e6313e2db.webp",
+        "uploads/1779288091457_e0056a0655dda2a5.webp"
+      ],
+      "description": "A hamburgueria aparecidense B10 Burger precisava não só de uma logo, mas de um novo site para gestão de seus pedidos. Junto com o site, criamos um sistema que recebe os pedidos vindo do site, dispara um efeito sonoro, prepara a comanda para impressão e ainda entra em contato com o cliente para validação da comanda. Estamos desenvolvendo ainda o restante da identidade visual e a gestão de redes sociais, que aparecerá aqui em breve.",
+      "siteUrl": "https://b10burger.com.br/"
+    },
+    {
+      "id": "destrua-isso",
+      "title": "Destrua Isso.",
+      "challenge": "",
+      "solution": "",
+      "outcome": "",
+      "blocks": [
+        {
+          "type": "wide",
+          "image": ""
+        },
+        {
+          "type": "pair",
+          "images": [
+            "",
+            ""
+          ]
+        }
+      ],
+      "kind": "site",
+      "previews": [
+        "uploads/1779288543894_d455eeb124d67449.webp",
+        "uploads/1779288546804_70fbd8587862a63b.webp",
+        "uploads/1779288549511_236458826c714a5f.webp"
+      ],
+      "siteUrl": "https://www.destruaisso.com.br/",
+      "description": "O Destrua Isso. é um editor de imagens online, focado em efeitos de dithering, que são algoritmos de conversão da imagem por escalas de erro de pixel. O que gera efeitos retrôs e com texturas bem diferentes. Um grande diferencial dos demais editores, é que a imagem pode ser toda produzida internamente na ferramenta, que conta com seleção de fontes, mesa de recorte digital e várias opções de paleta. Tudo pesando menos de 1 megabyte."
+    },
+    {
+      "id": "que-negocio-e-esse-sebrae",
+      "title": "Que Negócio É Esse, Sebrae?",
+      "challenge": "Desenvolver uma nova identidade visual para o podcast de negócios do Sebrae-MG que passa pelo desafio de se renovar para a sua nova temporada, conectando públicos de diversas idades sem deixar de parecer profissional.",
+      "solution": "O caminho adotado foi solidificar ainda mais os tons da empresa e retirando símbolos que haviam dentro do logotipo antigo, trazendo uma tipografia com escrita mais simples, mas que ao mesmo tempo brincasse com sua formulação tridimensional para mostrar a profundidade que o programa trás. Também foi criada uma redução da logomarca para funcionar bem como ícone e imagens de perfil de redes, além de toda uma reformulação de como funciona as capas dos episódios e suas apresentações nas redes sociais.",
+      "outcome": "Esse é um projeto conceitual que participou em uma concorrência para a nova identidade visual do podcast. ",
+      "blocks": [
+        {
+          "type": "wide",
+          "image": "uploads/1779297916653_78fc7b38cb69623e.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297931181_de8e66b29a85fe82.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297940370_5d8ced7eff4ce210.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779303152778_6e17befa67e3a159.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779297975921_809c34b72ef803ed.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779298076116_ec5b8db0323f8c0b.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779311919394_3b3b4c3a8508280a.webp"
+        },
+        {
+          "type": "pano",
+          "image": "uploads/1779302925492_60737355b3eb4800.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779303011699_74e6eedfa3b9dbc1.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779302937885_de5bc1169b1c4ad0.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779303033023_132c19eaaf551870.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779303057386_3e4654e0b52fcfb5.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779303062368_b4772a7429d2defe.webp"
+        }
+      ]
+    },
+    {
+      "id": "dutt-cosmeticos",
+      "title": "Dutt!",
+      "challenge": "A Dutt! é uma empresa de cosméticos que estava precisando ainda ser lançada. Era quase uma quadro em branco. Precisava de conceito de produto, nome, identidade visual, embalagens, além de estabelecer um propósito. Tudo isso de uma forma coesa que funcionasse a baixo custo e servisse para os mais diferentes tipos de produtos.",
+      "solution": "A principal solução girou ao redor da embalagem, que funciona através de um sistema de design que prioriza a informação clara, objetiva e marca o \"sabor\" dos produtos por meio de suas cores. A brincadeira de alimentos e produtos cosméticos é um tendência cada vez mais forte e a Dutt! trás isso da forma mais explícita possível, mas sem se tornar cafona e genérica.",
+      "outcome": "A marca está aguardando o registro de marca para lançamento nacional, mas as vendas locais do produto em grupos de testes já são aumentaram em 45% relacionadas ao produto como era vendido antes do processo de desenvolvimento de marca que fizemos.",
+      "blocks": [
+        {
+          "type": "wide",
+          "image": "uploads/1779298731819_de7c85191ae7dd95.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779298750227_76111ea51dcee7a2.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779298805837_025e515ee670d8aa.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779298815445_1b0f4a35b316590d.webp"
+        },
+        {
+          "type": "pair",
+          "images": [
+            "uploads/1779298894011_2257592739c7b95e.webp",
+            "uploads/1779298891180_b26b418b407125e3.webp"
+          ]
+        },
+        {
+          "type": "triple",
+          "images": [
+            "uploads/1779298767277_88c81574176a1059.webp",
+            "uploads/1779298769925_dd519e10339db35b.webp",
+            "uploads/1779298773352_beecb910ebcc14a3.webp"
+          ]
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779298848786_ed5cefa9a348ea2c.webp"
+        },
+        {
+          "type": "pano",
+          "image": "uploads/1779298785245_adf0a176bc6384f4.webp"
+        },
+        {
+          "type": "pano",
+          "image": "uploads/1779298798945_2fd961125183bab8.webp"
+        },
+        {
+          "type": "pair-square",
+          "images": [
+            "uploads/1779298830170_cb8f11b972831fa1.webp",
+            "uploads/1779298833608_981c59419020bc0a.webp"
+          ]
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779298863117_b67baac4811b0ce4.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779298857649_aaacc55fc5e1bd13.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779298867692_60b512458ce9545a.webp"
+        },
+        {
+          "type": "pano",
+          "image": "uploads/1779298883229_ea8d722459beda1e.webp"
+        }
+      ]
+    },
+    {
+      "id": "focus",
+      "title": "Focus+",
+      "challenge": "A Focus+ atende no formato B2G (Business to Government ou \"Empresa para o Governo\") e queria se renovar de uma forma que trouxesse seriedade e confiança à marca. A identidade visual precisava superar a desconfiança inicial que se tem com novas empresas nesse ramo, além de funcionar principalmente em relatórios de dados, apresentações e papelaria de entrega.",
+      "solution": "Como a Focus+ é composta por apenas dois sócios, um dos centros da nossa atividade foi desenvolver uma identidade visual que funcionasse de forma autônoma, sem necessidade de um profissional da área de comunicação para editar cada parte. Então criamos um sistema de capas e apresentações, que seria a principal interface da Focus+ com o cliente, que trouxesse todo dinamismo e seriedade que a marca nova criou. E claro, uma forma que trouxesse a seriedade que a empresa busca, mas sem cair no padrão do setor que tem preferência majoritária por maiúsculas e tons de azul.",
+      "outcome": "Após a mudança de identidade visual, a Focus+ já conseguiu fechar 4 contratos com grandes prefeituras e vem estudando a possibilidade de expandir seu quadro de funcionários para atender a demanda em outras cidades.",
+      "blocks": [
+        {
+          "type": "wide",
+          "image": "uploads/1779299250394_b05e85db03b0d112.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299283717_fddd7376bd746ea6.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299290136_2f246d8708c61219.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299293126_06efb8cf33be49b2.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299296840_f6a41fe3c966cc6e.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299424768_1e11d592d65297af.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299451234_33dd276963e84439.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299443356_dfdc695d31bde5e5.webp"
+        },
+        {
+          "type": "pair-square",
+          "images": [
+            "uploads/1779299437298_0be433561b99ca9b.webp",
+            "uploads/1779299440845_a2e7f4350adb8634.webp"
+          ]
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299458637_4bfc766356cd5baa.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299461540_0c959fcbc526a7b3.webp"
+        },
+        {
+          "type": "pano",
+          "image": "uploads/1779299472195_86998cbd642f3629.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299742819_9e9a68c2860b182c.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299752174_79a0e27596b29e8e.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299774836_d850a41cb8476b00.webp"
+        },
+        {
+          "type": "wide",
+          "image": "uploads/1779299779784_afd9c8a4a39cdb37.webp"
+        }
+      ]
+    }
+  ]
+}

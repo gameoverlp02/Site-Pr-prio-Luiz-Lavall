@@ -1,0 +1,91 @@
+{
+  "items": [
+    {
+      "id": "p1",
+      "title": "Geraes Café",
+      "tags": "criação de marca, identidade visual e tom de voz",
+      "size": "wide",
+      "comingSoon": false,
+      "images": [
+        {
+          "url": "uploads/1779134063173_5cde78432d8eba60.mp4",
+          "scale": 1.09,
+          "x": -2.5390625,
+          "y": 3.977272727272727
+        }
+      ],
+      "projectId": "geraes-cafe"
+    },
+    {
+      "id": "p3",
+      "title": "Focus+",
+      "tags": "identidade visual",
+      "size": "medium",
+      "comingSoon": false,
+      "images": [
+        {
+          "url": "uploads/1779283906796_d4f51876e31d71c2.webp",
+          "scale": 1.55,
+          "x": -4.8828125,
+          "y": 3.3854166666666665
+        },
+        "uploads/1779283916563_0637186abfd31def.webp",
+        "uploads/1779283926866_4e2ebfd634ab1268.webp"
+      ],
+      "projectId": "focus"
+    },
+    {
+      "id": "p2",
+      "title": "Dutt!",
+      "tags": "criação de marca, produto e embalagem",
+      "size": "short",
+      "comingSoon": false,
+      "images": [
+        "uploads/1779134322230_2c21c0460d50e8d2.mp4"
+      ],
+      "projectId": "dutt-cosmeticos"
+    },
+    {
+      "id": "p4",
+      "title": "Que Negócio É Esse, Sebrae?",
+      "tags": "identidade visual para podcast",
+      "size": "short",
+      "comingSoon": false,
+      "images": [
+        "uploads/1779283944043_3cd5d3fe551329a7.webp",
+        "uploads/1779283989483_86de31c3898e183f.webp",
+        "uploads/1779283993554_935f9a636b0d2f1c.webp"
+      ],
+      "projectId": "que-negocio-e-esse-sebrae"
+    },
+    {
+      "id": "p5",
+      "title": "Destrua Isso.",
+      "tags": "site e aplicação visual web",
+      "size": "medium",
+      "comingSoon": false,
+      "images": [
+        "uploads/1779288811687_dc7e44cbbced4132.mp4"
+      ],
+      "projectId": "destrua-isso"
+    },
+    {
+      "id": "p6",
+      "title": "B10 Burger",
+      "tags": "logo, site e ferramenta de gestão de pedidos",
+      "size": "medium",
+      "comingSoon": false,
+      "images": [
+        "uploads/1779303326926_99d6a4891dff6a40.webp",
+        "uploads/1779303370652_035eac1149d96a5b.webp",
+        {
+          "url": "uploads/1779303375205_7b1f0a943dc1ac86.webp",
+          "scale": 1,
+          "x": 0,
+          "y": 7.472073485967503
+        }
+      ],
+      "projectId": "b10burger"
+    }
+  ]
+}
