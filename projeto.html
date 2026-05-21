@@ -1054,7 +1054,7 @@
     var lastSeg = pathParts[pathParts.length - 1];
     var id = (lastSeg && lastSeg !== 'projeto.html') ? lastSeg : new URLSearchParams(window.location.search).get('id');
     if (!id) return;
-    fetch('/api/projetos')
+    fetch('/data/projetos.json')
       .then(function(r){ return r.json(); })
       .then(function(d){
         var items = (d && d.items) ? d.items : [];

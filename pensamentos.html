@@ -757,7 +757,7 @@
     modalClose.addEventListener('click',closeModal);
     modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
-    fetch('/api/pensamentos')
+    fetch('/data/pensamentos.json')
       .then(function(r){return r.json();})
       .then(function(d){
         var items=(d&&d.items)?d.items:[];

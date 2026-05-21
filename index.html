@@ -1075,7 +1075,7 @@
         });
       }
 
-      fetch('/api/portfolio')
+      fetch('/data/portfolio.json')
         .then(function (r) { return r.ok ? r.json() : { items: [] }; })
         .then(render)
         .catch(function () { render({ items: [] }); });

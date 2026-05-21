@@ -3,18 +3,9 @@
   "buildCommand": "echo 'done'",
   "outputDirectory": ".",
   "framework": null,
-  "functions": {
-    "api/*.js": {
-      "includeFiles": "data/**"
-    }
-  },
   "routes": [
-    { "src": "/api/portfolio", "dest": "/api/portfolio.js" },
-    { "src": "/api/projetos", "dest": "/api/projetos.js" },
-    { "src": "/api/sobre", "dest": "/api/sobre.js" },
-    { "src": "/api/autoral", "dest": "/api/autoral.js" },
-    { "src": "/api/pensamentos", "dest": "/api/pensamentos.js" },
     { "handle": "filesystem" },
+    { "src": "/projeto/(.*)", "dest": "/projeto.html" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

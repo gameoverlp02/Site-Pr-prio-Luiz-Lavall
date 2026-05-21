@@ -740,7 +740,7 @@
       if(hasAdj&&MH){var bg=MH.adjustToBackgroundCss(adjust);el.style.backgroundSize=bg.backgroundSize;el.style.backgroundPosition=bg.backgroundPosition;}
       el.textContent='';
     }
-    fetch('/api/sobre')
+    fetch('/data/sobre.json')
       .then(function(r){return r.json();})
       .then(function(d){
         var bio=d.bio||[];

@@ -1371,7 +1371,7 @@
         initDrag();
       }
 
-      fetch('/api/autoral')
+      fetch('/data/autoral.json')
         .then(function(r){ return r.json(); })
         .then(function(d){
           var items = (d && d.items) ? d.items : [];
