@@ -1,9 +1,7 @@
 {
   "name": "luiz-lavall-site",
   "version": "1.0.0",
-  "description": "Site do Luiz Lavall - designer, comunicador e estrategista",
-  "main": "server.js",
-  "type": "module",
+  "description": "Site portfolio de Luiz Lavall - designer, comunicador e estrategista",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
@@ -13,12 +11,5 @@
   "license": "MIT",
   "engines": {
     "node": "24.x"
-  },
-  "vercel": {
-    "functions": {
-      "api/serve.js": {
-        "runtime": "nodejs18.x"
-      }
-    }
   }
 }

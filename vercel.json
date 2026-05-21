@@ -1,6 +1,16 @@
 {
   "buildCommand": "echo 'Build complete'",
   "outputDirectory": ".",
-  "public": false,
-  "regions": ["sfo1"]
+  "regions": ["gru1"],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/(.*\\.html)", "dest": "/$1" },
+    { "src": "/(.*\\.css)", "dest": "/$1" },
+    { "src": "/(.*\\.js)", "dest": "/$1" },
+    { "src": "/(.*\\.woff2?)", "dest": "/$1" },
+    { "src": "/(.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.gif|.*\\.svg|.*\\.webp|.*\\.ico)", "dest": "/$1" },
+    { "src": "/(.*\\.mp4|.*\\.webm|.*\\.mov|.*\\.ogg)", "dest": "/$1" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
