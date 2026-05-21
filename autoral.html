@@ -632,7 +632,23 @@
       flex: 0 0 44%;
       border-radius: 15px 0 0 15px;
       overflow: hidden;
-      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .autoral-modal__media {
+      position: relative;
+      width: 100%;
+      max-height: 100%;
+    }
+    .autoral-modal__media > img,
+    .autoral-modal__media > video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .autoral-modal__body {
       flex: 1;
@@ -1197,24 +1213,30 @@
         }
 
         function showMedia(media) {
-          var ov = mImg.querySelector('video'), oi = mImg.querySelector('img');
-          if (ov) { ov.pause(); ov.remove(); } if (oi) oi.remove();
+          var oldBox = mImg.querySelector('.autoral-modal__media');
+          if (oldBox) {
+            var ov = oldBox.querySelector('video');
+            if (ov) ov.pause();
+            oldBox.remove();
+          }
           var MH = window.MediaHelper;
           var url = MH ? MH.getUrl(media) : media;
           if (!url) return;
           var adjust = MH ? MH.getAdjust(media) : { scale:1,x:0,y:0 };
           var hasAdj = MH ? MH.hasAdjust(media) : false;
+          var box = document.createElement('div');
+          box.className = 'autoral-modal__media';
+          box.style.aspectRatio = (mImg.dataset.ratio || '4/3').replace('/', ' / ');
           if (isVid(url)) {
             var v = MH ? MH.createVideo(url, { lazy: false }) : (function(){var x=document.createElement('video');x.src='/'+url;x.autoplay=true;x.loop=true;x.muted=true;x.playsInline=true;return x;})();
-            v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit';
             if (hasAdj && MH) { v.style.transform = MH.adjustToCss(adjust); v.style.transformOrigin='center'; }
-            mImg.style.position='relative'; mImg.appendChild(v);
+            box.appendChild(v);
           } else {
             var i=document.createElement('img'); i.src='/'+url;
-            i.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block';
             if (hasAdj && MH) { i.style.objectPosition = (50 - adjust.x) + '% ' + (50 - adjust.y) + '%'; }
-            mImg.style.position='relative'; mImg.appendChild(i);
+            box.appendChild(i);
           }
+          mImg.appendChild(box);
         }
 
         function updateNav() {
@@ -1248,7 +1270,7 @@
             if (!card) return;
             carousel.images = getImages(card);
             carousel.index  = 0;
-            mImg.style.aspectRatio = card.dataset.ratio || '4/3';
+            mImg.dataset.ratio = card.dataset.ratio || '4/3';
             mImg.style.background  = card.dataset.color || '#ededed';
             mTitle.textContent = card.dataset.title || '';
             mText.textContent  = card.dataset.text  || '';
