@@ -828,6 +828,7 @@
   </header>
 
   <main class="hero">
+    <div class="hero__thumbs" id="heroThumbs" aria-hidden="true"></div>
     <p class="hero__desc">
       comunicador, designer e estrategista que transita entre marca,
       conteúdo e tecnologia para construir presença real para empresas
@@ -1172,6 +1173,103 @@
         });
       });
     });
+  })();
+  </script>
+
+  <script>
+  (function () {
+    const THUMBS = [
+      // 'uploads/hero-thumbs/thumb-01.webp',
+      // 'uploads/hero-thumbs/thumb-02.webp',
+    ];
+    if (!THUMBS.length) return;
+
+    const hero = document.querySelector('.hero');
+    const layer = document.getElementById('heroThumbs');
+    if (!hero || !layer) return;
+
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    const isCoarse = matchMedia('(pointer: coarse)').matches;
+    const STEP_PX = 90;
+    const LIFETIME_MS = 1400;
+    const MAX_LIVE = 8;
+    const MOBILE_INTERVAL_MS = 900;
+
+    THUMBS.forEach(function (src) { const i = new Image(); i.src = src; });
+
+    let idx = 0;
+    const live = [];
+
+    function spawn(x, y) {
+      const src = THUMBS[idx % THUMBS.length];
+      idx++;
+
+      const img = document.createElement('img');
+      img.className = 'hero__thumb';
+      img.src = src;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.style.left = x + 'px';
+      img.style.top = y + 'px';
+      img.style.setProperty('--r', (Math.random() * 16 - 8).toFixed(2) + 'deg');
+      layer.appendChild(img);
+
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { img.classList.add('is-visible'); });
+      });
+
+      const entry = {
+        el: img,
+        timer: setTimeout(function () { remove(entry); }, LIFETIME_MS)
+      };
+      live.push(entry);
+
+      while (live.length > MAX_LIVE) remove(live[0]);
+    }
+
+    function remove(entry) {
+      const i = live.indexOf(entry);
+      if (i === -1) return;
+      live.splice(i, 1);
+      clearTimeout(entry.timer);
+      entry.el.classList.remove('is-visible');
+      setTimeout(function () {
+        if (entry.el.parentNode) entry.el.parentNode.removeChild(entry.el);
+      }, 400);
+    }
+
+    function rectRandom() {
+      const r = hero.getBoundingClientRect();
+      const pad = 80;
+      const x = pad + Math.random() * Math.max(0, r.width - pad * 2);
+      const y = pad + Math.random() * Math.max(0, r.height - pad * 2);
+      return { x: x, y: y };
+    }
+
+    if (isCoarse) {
+      setInterval(function () {
+        const p = rectRandom();
+        spawn(p.x, p.y);
+      }, MOBILE_INTERVAL_MS);
+    } else {
+      let lastX = null, lastY = null, acc = 0;
+      hero.addEventListener('mousemove', function (e) {
+        const r = hero.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        if (lastX !== null) {
+          acc += Math.hypot(x - lastX, y - lastY);
+          if (acc >= STEP_PX) {
+            acc = 0;
+            spawn(x, y);
+          }
+        }
+        lastX = x; lastY = y;
+      });
+    }
   })();
   </script>
 </body>
