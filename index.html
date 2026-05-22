@@ -227,6 +227,8 @@
       pointer-events: none;
       overflow: hidden;
       z-index: 0;
+      overflow-anchor: none;
+      contain: layout paint;
     }
     .hero__thumb {
       position: absolute;
@@ -238,6 +240,7 @@
       transform: translate(-50%, -50%) scale(0.85) rotate(var(--r, 0deg));
       transition: opacity .35s ease, transform .6s cubic-bezier(.2,.7,.2,1);
       will-change: opacity, transform;
+      overflow-anchor: none;
     }
     .hero__thumb.is-visible {
       opacity: 1;
@@ -1306,10 +1309,30 @@
     }
 
     if (isCoarse) {
-      setInterval(function () {
-        const p = rectRandom();
-        spawn(p.x, p.y);
-      }, MOBILE_INTERVAL_MS);
+      let intervalId = null;
+      const start = function () {
+        if (intervalId !== null) return;
+        intervalId = setInterval(function () {
+          const p = rectRandom();
+          spawn(p.x, p.y);
+        }, MOBILE_INTERVAL_MS);
+      };
+      const stop = function () {
+        if (intervalId === null) return;
+        clearInterval(intervalId);
+        intervalId = null;
+        while (live.length) remove(live[0]);
+      };
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) start(); else stop();
+          });
+        }, { threshold: 0 });
+        io.observe(hero);
+      } else {
+        start();
+      }
     } else {
       let lastX = null, lastY = null, acc = 0;
       hero.addEventListener('mousemove', function (e) {
