@@ -1,4 +1,9 @@
 ﻿<!DOCTYPE html>
+<!--
+  Eii! Você é uma pessoa curiosa.
+  Esse site foi desenhado e produzido por Luiz Lavall ;)
+  Qualquer dúvida, me chama no instagram -- @luizlavall.design
+-->
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -239,7 +244,7 @@
       transform: translate(-50%, -50%) scale(1) rotate(var(--r, 0deg));
     }
     @media (max-width: 768px) {
-      .hero__thumb { width: 18vw; }
+      .hero__thumb { width: 10vw; }
     }
 
     /* ---------- Portfólio ---------- */
@@ -1209,6 +1214,17 @@
 
   <script>
   (function () {
+    const msg = [
+      'Eii! Você é uma pessoa curiosa.',
+      'Esse site foi desenhado e produzido por Luiz Lavall ;)',
+      'Qualquer dúvida, me chama no instagram -- @luizlavall.design'
+    ].join('\n');
+    console.log('%c' + msg, 'font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; line-height: 1.6; color: #141414;');
+  })();
+  </script>
+
+  <script>
+  (function () {
     const THUMBS = [
       'uploads/hero-thumbs/1779317277000_c89efffaa33d6053_1_11zon_715x400.webp',
       'uploads/hero-thumbs/1779311469605_396586ad9c4b5eda_2_11zon_cropped.webp',
@@ -1235,7 +1251,7 @@
     const STEP_PX = 90;
     const LIFETIME_MS = 1400;
     const MAX_LIVE = 8;
-    const MOBILE_INTERVAL_MS = 900;
+    const MOBILE_INTERVAL_MS = 600;
 
     THUMBS.forEach(function (src) { const i = new Image(); i.src = src; });
 
