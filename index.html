@@ -475,33 +475,6 @@
       });
     });
   })();
-  (function(){
-    var wrap=document.querySelector('.nav__contact-wrap');
-    var cBtn=document.querySelector('.nav__contact-btn');
-    if(!wrap||!cBtn)return;
-    cBtn.addEventListener('click',function(e){
-      e.stopPropagation();
-      var open=wrap.classList.toggle('is-open');
-      cBtn.setAttribute('aria-expanded',String(open));
-    });
-    document.addEventListener('click',function(e){
-      if(!wrap.contains(e.target)){wrap.classList.remove('is-open');cBtn.setAttribute('aria-expanded','false');}
-    });
-    document.addEventListener('keydown',function(e){
-      if(e.key==='Escape'){wrap.classList.remove('is-open');cBtn.setAttribute('aria-expanded','false');}
-    });
-    document.querySelectorAll('.nav__dropdown-copy,.contact__copy').forEach(function(b){
-      b.addEventListener('click',function(e){
-        e.stopPropagation();
-        var text=this.dataset.copy,self=this,orig=self.innerHTML;
-        navigator.clipboard.writeText(text).then(function(){
-          self.classList.add('copied');
-          self.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-          setTimeout(function(){self.classList.remove('copied');self.innerHTML=orig;},1500);
-        });
-      });
-    });
-  })();
   </script>
 
   <script>
