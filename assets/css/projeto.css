@@ -198,6 +198,7 @@
       top: 0;
       background: var(--branco);
       z-index: 10;
+      border-bottom: var(--linha);
     }
 
     .hero {
@@ -587,7 +588,6 @@
 
     /* ---------- Projeto (página individual) ---------- */
     .project {
-      border-top: var(--linha);
       padding: 80px 56px 120px;
     }
     .project__layout {
