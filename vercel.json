@@ -42,6 +42,7 @@
     }
   ],
   "routes": [
+    { "src": "/api/briefing", "dest": "/api/briefing.js" },
     { "handle": "filesystem" },
     { "src": "/projeto/(.*)", "dest": "/projeto.html" },
     { "src": "/(.*)", "dest": "/index.html" }
