@@ -142,6 +142,47 @@ ul { list-style: none; }
 /* ---------- Form ---------- */
 .briefing__form { display: flex; flex-direction: column; gap: 36px; }
 
+.form-step { display: flex; flex-direction: column; gap: 28px; }
+
+.step-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.step-back {
+  background: none;
+  border: none;
+  font-family: var(--sans-condensed);
+  font-size: var(--fs-b2);
+  color: var(--preto);
+  opacity: .45;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity .2s ease;
+}
+.step-back:hover { opacity: .8; }
+
+/* Progress bar */
+.briefing__progress-wrap { margin-top: 4px; }
+
+.briefing__progress {
+  height: 1.5px;
+  background: rgba(20, 20, 20, 0.15);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.briefing__progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--preto);
+  border-radius: 1px;
+  transition: width 0.4s ease;
+}
+
 .field { display: flex; flex-direction: column; gap: 10px; }
 
 .field__label {
