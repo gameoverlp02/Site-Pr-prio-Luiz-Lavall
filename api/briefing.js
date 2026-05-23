@@ -136,7 +136,7 @@ module.exports = async function handler(req, res) {
     const { error } = await resend.emails.send({
       from,
       to,
-      reply_to: data.email,
+      replyTo: data.email,
       subject: `Novo briefing — ${data.nome}`,
       html: buildHtml(data),
       text: buildText(data),
@@ -146,16 +146,22 @@ module.exports = async function handler(req, res) {
       console.error('[briefing] Resend error:', error);
       res.statusCode = 502;
       res.setHeader('Content-Type', 'application/json; charset=utf-8');
-      return res.end(JSON.stringify({ error: 'Falha ao enviar o briefing.' }));
+      return res.end(JSON.stringify({
+        error: 'Falha ao enviar o briefing.',
+        detail: error.message || error.name || String(error),
+      }));
     }
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
     return res.end(JSON.stringify({ ok: true }));
   } catch (err) {
-    console.error('[briefing] erro inesperado:', err.message);
+    console.error('[briefing] erro inesperado:', err);
     res.statusCode = 502;
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
-    return res.end(JSON.stringify({ error: 'Falha ao enviar o briefing.' }));
+    return res.end(JSON.stringify({
+      error: 'Falha ao enviar o briefing.',
+      detail: err && err.message ? err.message : String(err),
+    }));
   }
 };
