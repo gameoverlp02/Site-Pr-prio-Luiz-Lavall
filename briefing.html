@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <title>Briefing — Luiz Lavall</title>
+  <meta name="title" content="Briefing — Luiz Lavall" />
+  <meta name="description" content="Me conta seus desafios. Preencha o briefing para que a gente possa conversar sobre o seu projeto." />
+  <meta name="author" content="Luiz Lavall" />
+  <meta name="theme-color" content="#141414" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://luizlavall.com.br/briefing.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Luiz Lavall" />
+  <meta property="og:url" content="https://luizlavall.com.br/briefing.html" />
+  <meta property="og:title" content="Briefing — Luiz Lavall" />
+  <meta property="og:description" content="Me conta seus desafios. Preencha o briefing para conversarmos sobre o seu projeto." />
+  <meta property="og:image" content="https://luizlavall.com.br/logo.svg" />
+
+  <link rel="preload" href="/margem%20condensed/Margem-CondensedRegular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/css/briefing.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/assets/css/briefing.css" /></noscript>
+</head>
+<body>
+  <div class="page-wrap">
+  <header class="nav">
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav__left">
+      <li><a href="/index.html#trabalhos">trabalhos</a></li>
+      <li><a href="/sobre.html">sobre</a></li>
+      <li><a href="/autoral.html">autoral</a></li>
+      <li><a href="/pensamentos.html">pensamentos</a></li>
+    </ul>
+    <ul class="nav__right">
+      <li><a href="/briefing.html">contato</a></li>
+    </ul>
+  </header>
+
+  <section class="briefing" id="briefing">
+    <div class="briefing__intro">
+      <h1 class="briefing__title">Me conta seus desafios.</h1>
+      <div class="briefing__text">
+        <p>Preencha a solicitação para que eu possa agendar um horário e conversar sobre o seu projeto.</p>
+        <p>Se preferir, envie um e-mail para <a href="mailto:luizpaulo.lavall@gmail.com">luizpaulo.lavall@gmail.com</a> ou uma mensagem pelo <a href="https://wa.me/5562991760298?text=Ol%C3%A1%2C+Luiz%21+Vi+seu+site+e+gostaria+de+conversar+com+voc%C3%AA." target="_blank" rel="noopener">WhatsApp</a>.</p>
+      </div>
+    </div>
+
+    <form class="briefing__form" id="briefingForm" novalidate>
+      <div class="field">
+        <label class="field__label" for="f-nome">Como você prefere ser chamado(a)?</label>
+        <input class="field__input" type="text" id="f-nome" name="nome" required autocomplete="name" />
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="f-email">Qual o seu melhor e-mail?</label>
+        <span class="field__hint">Aquele que você sempre abre e pelo qual a gente pode te contatar.</span>
+        <input class="field__input" type="email" id="f-email" name="email" required autocomplete="email" />
+      </div>
+
+      <div class="field">
+        <span class="field__label">Pode me informar o nome da sua empresa?</span>
+        <div class="choices" role="radiogroup" aria-label="Empresa">
+          <label class="choice">
+            <input type="radio" name="empresa_status" value="sim" data-target="empresa-sim" required />
+            <span class="choice__box"></span>
+            <span>Sim</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="empresa_status" value="nao_informar" data-target="" />
+            <span class="choice__box"></span>
+            <span>Não posso informar</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="empresa_status" value="sem_nome" data-target="empresa-sem-nome" />
+            <span class="choice__box"></span>
+            <span>Ainda não tem nome</span>
+          </label>
+        </div>
+
+        <div class="subfield" id="empresa-sim" hidden>
+          <label class="field__label" for="f-empresa-nome">Ótimo! Qual o nome?</label>
+          <input class="field__input" type="text" id="f-empresa-nome" name="empresa_nome" />
+        </div>
+
+        <div class="subfield" id="empresa-sem-nome" hidden>
+          <span class="field__label">Tudo bem. Sua empresa tem quantos funcionários (ou previsão)?</span>
+          <div class="choices" role="radiogroup" aria-label="Tamanho da empresa" style="margin-top:10px;">
+            <label class="choice"><input type="radio" name="empresa_tamanho" value="sou_eu" /><span class="choice__box"></span><span>Sou eu mesmo</span></label>
+            <label class="choice"><input type="radio" name="empresa_tamanho" value="ate_10" /><span class="choice__box"></span><span>Até 10</span></label>
+            <label class="choice"><input type="radio" name="empresa_tamanho" value="11_50" /><span class="choice__box"></span><span>11 a 50</span></label>
+            <label class="choice"><input type="radio" name="empresa_tamanho" value="51_200" /><span class="choice__box"></span><span>51 a 200</span></label>
+            <label class="choice"><input type="radio" name="empresa_tamanho" value="200_mais" /><span class="choice__box"></span><span>Mais de 200</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="f-cargo">Qual cargo ou função você ocupa na empresa?</label>
+        <input class="field__input" type="text" id="f-cargo" name="cargo" />
+      </div>
+
+      <div class="field">
+        <span class="field__label">Escolha abaixo o que você acha que a sua empresa precisa.</span>
+        <span class="field__hint">Pode marcar mais de uma.</span>
+        <div class="choices">
+          <label class="choice"><input type="checkbox" name="servicos" value="marca" /><span class="choice__box"></span><span>Criação de marca</span></label>
+          <label class="choice"><input type="checkbox" name="servicos" value="site" /><span class="choice__box"></span><span>Criação de site</span></label>
+          <label class="choice"><input type="checkbox" name="servicos" value="redes" /><span class="choice__box"></span><span>Gestão de redes sociais</span></label>
+          <label class="choice"><input type="checkbox" name="servicos" value="grafica" /><span class="choice__box"></span><span>Produção gráfica</span></label>
+          <label class="choice"><input type="checkbox" name="servicos" value="outro" data-target="servicos-outro" /><span class="choice__box"></span><span>Outro</span></label>
+          <label class="choice"><input type="checkbox" name="servicos" value="conversar" /><span class="choice__box"></span><span>Ainda não sei, quero conversar</span></label>
+        </div>
+        <div class="subfield" id="servicos-outro" hidden>
+          <label class="field__label" for="f-servicos-outro">Me conta o que você precisa.</label>
+          <input class="field__input" type="text" id="f-servicos-outro" name="servicos_outro" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="f-desafios">Me fala um pouco da sua empresa e os principais desafios que ela enfrenta.</label>
+        <span class="field__hint">Descreva o segmento de atuação, público-alvo, tempo de mercado e os desafios atuais.</span>
+        <textarea class="field__textarea" id="f-desafios" name="desafios" required></textarea>
+      </div>
+
+      <div class="field">
+        <span class="field__label">Você gostaria de compartilhar o seu número de WhatsApp?</span>
+        <span class="field__hint">Para um contato mais rápido, caso prefira.</span>
+        <div class="choices" role="radiogroup" aria-label="WhatsApp">
+          <label class="choice">
+            <input type="radio" name="whatsapp_optin" value="sim" data-target="whatsapp-sim" />
+            <span class="choice__box"></span>
+            <span>Sim</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="whatsapp_optin" value="nao" data-target="" />
+            <span class="choice__box"></span>
+            <span>Prefiro contato apenas por e-mail</span>
+          </label>
+        </div>
+        <div class="subfield" id="whatsapp-sim" hidden>
+          <label class="field__label" for="f-whatsapp">Massa! Qual o seu número?</label>
+          <input class="field__input" type="tel" id="f-whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" />
+        </div>
+      </div>
+
+      <button type="submit" class="briefing__submit" id="briefingSubmit">enviar briefing</button>
+      <p class="briefing__status" id="briefingStatus" aria-live="polite"></p>
+    </form>
+
+    <div class="briefing__done" id="briefingDone" aria-live="polite">
+      <h2 class="briefing__done-title">Recebido!</h2>
+      <p class="briefing__done-text">Agradeço pela sua resposta. Vou analisar com calma todas as informações que você me enviou e em breve entro em contato.</p>
+    </div>
+  </section>
+  </div>
+
+  <footer class="footer-logo">
+    <a href="/index.html" aria-label="Início">
+      <img src="/logo.svg" alt="Luiz Lavall" width="1356" height="214" loading="lazy" decoding="async" />
+    </a>
+  </footer>
+
+  <script>
+  (function(){
+    var btn = document.querySelector('.nav__hamburger');
+    if (!btn) return;
+    btn.addEventListener('click', function(){
+      var nav = this.closest('.nav');
+      var open = nav.classList.toggle('nav--open');
+      this.setAttribute('aria-expanded', String(open));
+    });
+    document.querySelectorAll('.nav__left a').forEach(function(a){
+      a.addEventListener('click', function(){
+        var nav = document.querySelector('.nav');
+        if (nav) nav.classList.remove('nav--open');
+        var b = document.querySelector('.nav__hamburger');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  (function(){
+    // Reveal sub-fields based on radio/checkbox selection
+    document.querySelectorAll('input[data-target]').forEach(function(input){
+      input.addEventListener('change', function(){
+        var name = input.name;
+        var type = input.type;
+        if (type === 'radio') {
+          document.querySelectorAll('input[type="radio"][name="' + name + '"]').forEach(function(r){
+            var tid = r.getAttribute('data-target');
+            if (!tid) return;
+            var el = document.getElementById(tid);
+            if (el) el.hidden = !r.checked;
+          });
+        } else {
+          var tid = input.getAttribute('data-target');
+          if (!tid) return;
+          var el = document.getElementById(tid);
+          if (el) el.hidden = !input.checked;
+        }
+      });
+    });
+  })();
+
+  (function(){
+    var form = document.getElementById('briefingForm');
+    var status = document.getElementById('briefingStatus');
+    var submit = document.getElementById('briefingSubmit');
+    var section = document.getElementById('briefing');
+    if (!form) return;
+
+    function setStatus(msg, isError){
+      status.textContent = msg || '';
+      status.classList.toggle('is-error', !!isError);
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      setStatus('');
+
+      var data = {
+        nome: form.nome.value.trim(),
+        email: form.email.value.trim(),
+        empresa_status: (form.querySelector('input[name="empresa_status"]:checked') || {}).value || '',
+        empresa_nome: form.empresa_nome ? form.empresa_nome.value.trim() : '',
+        empresa_tamanho: (form.querySelector('input[name="empresa_tamanho"]:checked') || {}).value || '',
+        cargo: form.cargo.value.trim(),
+        servicos: Array.prototype.map.call(form.querySelectorAll('input[name="servicos"]:checked'), function(i){ return i.value; }),
+        servicos_outro: form.servicos_outro ? form.servicos_outro.value.trim() : '',
+        desafios: form.desafios.value.trim(),
+        whatsapp_optin: (form.querySelector('input[name="whatsapp_optin"]:checked') || {}).value || '',
+        whatsapp: form.whatsapp ? form.whatsapp.value.trim() : ''
+      };
+
+      if (!data.nome || !data.email || !data.desafios) {
+        setStatus('Preencha nome, e-mail e a descrição dos desafios.', true);
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+        setStatus('Confira o e-mail informado.', true);
+        return;
+      }
+      if (!data.empresa_status) {
+        setStatus('Me conta sobre a empresa na pergunta 3.', true);
+        return;
+      }
+
+      submit.disabled = true;
+      setStatus('Enviando...');
+
+      fetch('/api/briefing', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, body: j }; }); })
+        .then(function(res){
+          if (res.ok) {
+            section.classList.add('is-done');
+            window.scrollTo({ top: section.offsetTop - 40, behavior: 'smooth' });
+          } else {
+            setStatus((res.body && res.body.error) || 'Não consegui enviar agora. Tenta de novo daqui a pouco.', true);
+            submit.disabled = false;
+          }
+        })
+        .catch(function(){
+          setStatus('Não consegui enviar agora. Tenta de novo daqui a pouco.', true);
+          submit.disabled = false;
+        });
+    });
+  })();
+  </script>
+</body>
+</html>
