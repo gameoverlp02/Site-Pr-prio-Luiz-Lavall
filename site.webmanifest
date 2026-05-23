@@ -1,0 +1,20 @@
+{
+  "name": "Luiz Lavall — Designer Gráfico",
+  "short_name": "Luiz Lavall",
+  "description": "Portfólio de Luiz Lavall — designer gráfico focado em criação de marcas, sites e produção gráfica.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#141414",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

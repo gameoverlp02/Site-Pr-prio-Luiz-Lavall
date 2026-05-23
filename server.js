@@ -143,11 +143,19 @@ function serveStatic(req, res, urlPath) {
     fs.stat(filePath, (err2, stat2) => {
       if (err2 || !stat2.isFile()) return sendText(res, 404, 'Not found');
       const ext = path.extname(filePath).toLowerCase();
+      const longCacheExts = ['.woff', '.woff2', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.mp4', '.webm', '.mov', '.ogg', '.ico'];
+      const mediumCacheExts = ['.css', '.js'];
+      let cacheControl;
+      if (longCacheExts.includes(ext)) {
+        cacheControl = 'public, max-age=31536000, immutable';
+      } else if (mediumCacheExts.includes(ext)) {
+        cacheControl = 'public, max-age=86400, must-revalidate';
+      } else {
+        cacheControl = 'public, max-age=0, must-revalidate';
+      }
       res.writeHead(200, {
         'Content-Type': MIME[ext] || 'application/octet-stream',
-        'Cache-Control': 'no-store, no-cache, must-revalidate',
-        'Pragma': 'no-cache',
-        'Expires': '0',
+        'Cache-Control': cacheControl,
       });
       fs.createReadStream(filePath).pipe(res);
     });
@@ -166,9 +174,7 @@ const server = http.createServer(async (req, res) => {
     const filePath = path.join(ROOT, 'projeto.html');
     res.writeHead(200, {
       'Content-Type': 'text/html; charset=utf-8',
-      'Cache-Control': 'no-store, no-cache, must-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0',
+      'Cache-Control': 'public, max-age=0, must-revalidate',
     });
     fs.createReadStream(filePath).pipe(res);
     return;
