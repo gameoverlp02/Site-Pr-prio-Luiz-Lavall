@@ -268,7 +268,9 @@
             section.classList.add('is-done');
             window.scrollTo({ top: section.offsetTop - 40, behavior: 'smooth' });
           } else {
-            setStatus((res.body && res.body.error) || 'Não consegui enviar agora. Tenta de novo daqui a pouco.', true);
+            var msg = (res.body && res.body.error) || 'Não consegui enviar agora. Tenta de novo daqui a pouco.';
+            if (res.body && res.body.detail) msg += ' (' + res.body.detail + ')';
+            setStatus(msg, true);
             submit.disabled = false;
           }
         })
