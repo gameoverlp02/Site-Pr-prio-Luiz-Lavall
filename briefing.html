@@ -56,6 +56,10 @@
 
     <form class="briefing__form" id="briefingForm" novalidate>
 
+      <div class="briefing__step-meta">
+        <span id="stepCounter">01</span> <span class="briefing__step-total">/ 07</span>
+      </div>
+
       <!-- Etapa 1 — Nome -->
       <div class="form-step" data-step="1">
         <div class="field">
@@ -208,6 +212,7 @@
         <div class="briefing__progress">
           <div class="briefing__progress-fill" id="progressFill"></div>
         </div>
+        <span class="briefing__progress-label" id="progressLabel">Etapa 01 de 07</span>
       </div>
 
       <p class="briefing__status" id="briefingStatus" aria-live="polite"></p>
@@ -251,8 +256,12 @@
     var form = document.getElementById('briefingForm');
     var status = document.getElementById('briefingStatus');
     var progressFill = document.getElementById('progressFill');
+    var progressLabel = document.getElementById('progressLabel');
+    var stepCounter = document.getElementById('stepCounter');
     var section = document.getElementById('briefing');
     if (!form) return;
+
+    function pad2(n) { return ('0' + n).slice(-2); }
 
     function getStepEl(n) {
       return form.querySelector('[data-step="' + n + '"]');
@@ -261,6 +270,8 @@
     function updateProgress() {
       var pct = Math.round((currentStep - 1) / TOTAL_STEPS * 100);
       progressFill.style.width = pct + '%';
+      if (stepCounter) stepCounter.textContent = pad2(currentStep);
+      if (progressLabel) progressLabel.textContent = 'Etapa ' + pad2(currentStep) + ' de ' + pad2(TOTAL_STEPS);
     }
 
     function showError(msg, isError) {
