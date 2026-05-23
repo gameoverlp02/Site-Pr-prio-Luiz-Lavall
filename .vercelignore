@@ -1,6 +1,9 @@
 server.js
-api/
-!api/briefing.js
+api/autoral.js
+api/pensamentos.js
+api/portfolio.js
+api/projetos.js
+api/sobre.js
 admin/
 abrir-site.bat
 *.log
