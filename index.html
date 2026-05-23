@@ -193,7 +193,6 @@
               <h2 class="services__title" data-index="2"><span class="services__num">03</span><span class="services__name">gestão de redes sociais</span></h2>
               <h2 class="services__title" data-index="3"><span class="services__num">04</span><span class="services__name">produção gráfica</span></h2>
             </div>
-            <span class="services__label">serviços</span>
           </div>
           <div class="services__bodies">
             <div class="services__body is-active" data-index="0">
@@ -268,8 +267,6 @@
           b.innerHTML = bodies[i].innerHTML;
           mobileView.appendChild(b);
         }
-        const labelClone = section.querySelector('.services__label').cloneNode(true);
-        mobileView.appendChild(labelClone);
         pin.appendChild(mobileView);
       }
 
