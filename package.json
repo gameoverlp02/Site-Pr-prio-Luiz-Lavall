@@ -6,10 +6,17 @@
     "start": "node server.js",
     "dev": "node server.js"
   },
-  "keywords": ["design", "brand", "portfolio"],
+  "keywords": [
+    "design",
+    "brand",
+    "portfolio"
+  ],
   "author": "Luiz Lavall",
   "license": "MIT",
   "engines": {
     "node": "24.x"
+  },
+  "dependencies": {
+    "resend": "^6.12.3"
   }
 }

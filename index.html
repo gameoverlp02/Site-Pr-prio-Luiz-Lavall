@@ -125,23 +125,7 @@
       <li><a href="/pensamentos.html">pensamentos</a></li>
     </ul>
     <ul class="nav__right">
-      <li class="nav__contact-wrap">
-        <button class="nav__contact-btn" aria-haspopup="true" aria-expanded="false">contato</button>
-        <div class="nav__dropdown" role="menu">
-          <div class="nav__dropdown-item">
-            <a href="https://wa.me/5562991760298?text=Ol%C3%A1%2C+Luiz%21+Vi+seu+site+e+gostaria+de+conversar+com+voc%C3%AA." target="_blank" rel="noopener" class="nav__dropdown-link">62 99176 0298</a>
-            <button class="nav__dropdown-copy" data-copy="62 99176 0298" title="Copiar número">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-            </button>
-          </div>
-          <div class="nav__dropdown-item">
-            <a href="mailto:luizpaulo.lavall@gmail.com" class="nav__dropdown-link">luizpaulo.lavall@gmail.com</a>
-            <button class="nav__dropdown-copy" data-copy="luizpaulo.lavall@gmail.com" title="Copiar e-mail">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-            </button>
-          </div>
-        </div>
-      </li>
+      <li><a href="/briefing.html">contato</a></li>
     </ul>
   </header>
 
@@ -488,33 +472,6 @@
         if(nav){nav.classList.remove("nav--open");}
         var b=document.querySelector(".nav__hamburger");
         if(b){b.setAttribute("aria-expanded","false");}
-      });
-    });
-  })();
-  (function(){
-    var wrap=document.querySelector('.nav__contact-wrap');
-    var cBtn=document.querySelector('.nav__contact-btn');
-    if(!wrap||!cBtn)return;
-    cBtn.addEventListener('click',function(e){
-      e.stopPropagation();
-      var open=wrap.classList.toggle('is-open');
-      cBtn.setAttribute('aria-expanded',String(open));
-    });
-    document.addEventListener('click',function(e){
-      if(!wrap.contains(e.target)){wrap.classList.remove('is-open');cBtn.setAttribute('aria-expanded','false');}
-    });
-    document.addEventListener('keydown',function(e){
-      if(e.key==='Escape'){wrap.classList.remove('is-open');cBtn.setAttribute('aria-expanded','false');}
-    });
-    document.querySelectorAll('.nav__dropdown-copy,.contact__copy').forEach(function(b){
-      b.addEventListener('click',function(e){
-        e.stopPropagation();
-        var text=this.dataset.copy,self=this,orig=self.innerHTML;
-        navigator.clipboard.writeText(text).then(function(){
-          self.classList.add('copied');
-          self.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-          setTimeout(function(){self.classList.remove('copied');self.innerHTML=orig;},1500);
-        });
       });
     });
   })();

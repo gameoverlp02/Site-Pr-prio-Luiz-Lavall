@@ -85,6 +85,11 @@ async function handleAPI(req, res, urlPath) {
   const parts = urlPath.replace(/^\/api\//, '').split('/').filter(Boolean);
   const resource = parts[0];
 
+  if (resource === 'briefing') {
+    const briefingHandler = require('./api/briefing.js');
+    return briefingHandler(req, res);
+  }
+
   if (resource === 'upload' && req.method === 'POST') {
     const body = await readJSONBody(req);
     if (!body || !body.dataBase64 || !body.filename) {
@@ -167,6 +172,16 @@ const server = http.createServer(async (req, res) => {
   if (u.pathname.startsWith('/api/')) {
     try { await handleAPI(req, res, u.pathname); }
     catch (e) { sendJSON(res, 500, { error: String(e && e.message || e) }); }
+    return;
+  }
+  // Rota limpa: /briefing  →  serve briefing.html
+  if (/^\/briefing\/?$/.test(u.pathname)) {
+    const filePath = path.join(ROOT, 'briefing.html');
+    res.writeHead(200, {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': 'public, max-age=0, must-revalidate',
+    });
+    fs.createReadStream(filePath).pipe(res);
     return;
   }
   // Rota limpa: /projeto/<id>  →  serve projeto.html
