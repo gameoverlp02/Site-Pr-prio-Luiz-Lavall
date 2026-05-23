@@ -1,5 +1,6 @@
 server.js
 api/
+!api/briefing.js
 admin/
 abrir-site.bat
 *.log
