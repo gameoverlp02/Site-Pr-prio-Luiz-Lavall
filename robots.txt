@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /uploads/*.json$
+
+Sitemap: https://luizlavall.com.br/sitemap.xml
