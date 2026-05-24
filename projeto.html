@@ -7,9 +7,9 @@
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- SEO Primary Meta Tags (atualizado dinamicamente via JS conforme o projeto) -->
-  <title>Projeto — Luiz Lavall</title>
-  <meta name="title" content="Projeto — Luiz Lavall" />
-  <meta name="description" content="Estudo de caso de projeto de design por Luiz Lavall — desafio, processo e resultado final." />
+  <title>Projeto | Luiz Lavall</title>
+  <meta name="title" content="Projeto | Luiz Lavall" />
+  <meta name="description" content="Estudo de caso de projeto de design por Luiz Lavall: desafio, processo e resultado final." />
   <meta name="author" content="Luiz Lavall" />
   <meta name="theme-color" content="#141414" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -19,13 +19,13 @@
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:site_name" content="Luiz Lavall" />
-  <meta property="og:title" content="Projeto — Luiz Lavall" />
-  <meta property="og:description" content="Estudo de caso de projeto de design por Luiz Lavall — desafio, processo e resultado final." />
+  <meta property="og:title" content="Projeto | Luiz Lavall" />
+  <meta property="og:description" content="Estudo de caso de projeto de design por Luiz Lavall: desafio, processo e resultado final." />
   <meta property="og:image" content="https://luizlavall.com.br/logo.svg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Projeto — Luiz Lavall" />
+  <meta name="twitter:title" content="Projeto | Luiz Lavall" />
   <meta name="twitter:description" content="Estudo de caso de projeto de design por Luiz Lavall." />
   <meta name="twitter:image" content="https://luizlavall.com.br/logo.svg" />
 
@@ -61,15 +61,15 @@
           <div class="project__bodies">
             <div class="project__body is-active" data-index="0">
               <span class="project__subtitle">Desafio</span>
-              <p class="project__text">A marca existia há oito anos sem nunca ter passado por uma revisão formal de identidade. O que surgiu como solução provisória foi ficando, acumulando camadas e perdendo coerência a cada novo canal que entrava em operação. A pergunta não era como deixar mais bonito — era como devolver unidade a algo que havia crescido sem direção, sem que isso apagasse a história que a empresa tinha construído até ali.</p>
+              <p class="project__text">A marca existia há oito anos sem nunca ter passado por uma revisão formal de identidade. O que surgiu como solução provisória foi ficando, acumulando camadas e perdendo coerência a cada novo canal que entrava em operação. A pergunta não era como deixar mais bonito. Era como devolver unidade a algo que havia crescido sem direção, sem que isso apagasse a história que a empresa tinha construído até ali.</p>
             </div>
             <div class="project__body" data-index="1">
               <span class="project__subtitle">Solução</span>
-              <p class="project__text">O processo começou por trás das peças — ouvindo as pessoas que faziam a marca acontecer no dia a dia, mapeando onde ela aparecia e onde sumia, entendendo o que havia de verdadeiro naquilo que tinha sobrado. A partir daí, foi construído um sistema visual que preservava o que funcionava e dava estrutura ao que estava solto: tipografia, cor, tom de voz e uma lógica de aplicação que qualquer pessoa da equipe conseguia seguir sem depender de um designer a cada post.</p>
+              <p class="project__text">O processo começou por trás das peças, ouvindo as pessoas que faziam a marca acontecer no dia a dia, mapeando onde ela aparecia e onde sumia, entendendo o que havia de verdadeiro naquilo que tinha sobrado. A partir daí, foi construído um sistema visual que preservava o que funcionava e dava estrutura ao que estava solto: tipografia, cor, tom de voz e uma lógica de aplicação que qualquer pessoa da equipe conseguia seguir sem depender de um designer a cada post.</p>
             </div>
             <div class="project__body" data-index="2">
               <span class="project__subtitle">Desfecho</span>
-              <p class="project__text">A nova identidade entrou em produção seis semanas após o início do projeto. O que mais apareceu nos retornos não foi "ficou mais bonito" — foi "agora parece que é tudo da mesma empresa". A equipe de comunicação passou a produzir com mais autonomia e menos retrabalho. Para a marca, a mudança mais importante foi interna: finalmente havia uma linguagem compartilhada sobre quem ela era e como deveria aparecer no mundo.</p>
+              <p class="project__text">A nova identidade entrou em produção seis semanas após o início do projeto. O que mais apareceu nos retornos não foi "ficou mais bonito". Foi "agora parece que é tudo da mesma empresa". A equipe de comunicação passou a produzir com mais autonomia e menos retrabalho. Para a marca, a mudança mais importante foi interna: finalmente havia uma linguagem compartilhada sobre quem ela era e como deveria aparecer no mundo.</p>
             </div>
           </div>
         </div>
@@ -210,19 +210,19 @@
         if (!project) return;
         var titleEl = document.querySelector('.project__title');
         if (titleEl) titleEl.textContent = project.title || '';
-        if (project.title) document.title = project.title + ' — Luiz Lavall';
+        if (project.title) document.title = project.title + ' | Luiz Lavall';
 
         // Atualização dinâmica de meta tags para SEO/compartilhamento
-        var desc = project.description || ('Projeto de design por Luiz Lavall — ' + (project.title || ''));
+        var desc = project.description || ('Projeto de design por Luiz Lavall: ' + (project.title || ''));
         var canonical = 'https://luizlavall.com.br/projeto/' + encodeURIComponent(id);
         function setMeta(selector, attr, value) {
           var el = document.querySelector(selector);
           if (el) el.setAttribute(attr, value);
         }
         setMeta('meta[name="description"]', 'content', desc);
-        setMeta('meta[name="title"]', 'content', (project.title || '') + ' — Luiz Lavall');
+        setMeta('meta[name="title"]', 'content', (project.title || '') + ' | Luiz Lavall');
         setMeta('link[rel="canonical"]', 'href', canonical);
-        setMeta('meta[property="og:title"]', 'content', (project.title || '') + ' — Luiz Lavall');
+        setMeta('meta[property="og:title"]', 'content', (project.title || '') + ' | Luiz Lavall');
         setMeta('meta[property="og:description"]', 'content', desc);
         var ogUrl = document.querySelector('meta[property="og:url"]');
         if (!ogUrl) {
@@ -231,7 +231,7 @@
           document.head.appendChild(ogUrl);
         }
         ogUrl.setAttribute('content', canonical);
-        setMeta('meta[name="twitter:title"]', 'content', (project.title || '') + ' — Luiz Lavall');
+        setMeta('meta[name="twitter:title"]', 'content', (project.title || '') + ' | Luiz Lavall');
         setMeta('meta[name="twitter:description"]', 'content', desc);
 
         // Imagem OG dinâmica a partir da primeira mídia do projeto
