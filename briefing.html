@@ -55,104 +55,166 @@
     </div>
 
     <form class="briefing__form" id="briefingForm" novalidate>
-      <div class="field">
-        <label class="field__label" for="f-nome">Como você prefere ser chamado(a)?</label>
-        <input class="field__input" type="text" id="f-nome" name="nome" required autocomplete="name" />
+
+      <div class="briefing__step-meta">
+        <span id="stepCounter">01</span> <span class="briefing__step-total">/ 07</span>
       </div>
 
-      <div class="field">
-        <label class="field__label" for="f-email">Qual o seu melhor e-mail?</label>
-        <span class="field__hint">Aquele que você sempre abre e pelo qual a gente pode te contatar.</span>
-        <input class="field__input" type="email" id="f-email" name="email" required autocomplete="email" />
+      <!-- Etapa 1 — Nome -->
+      <div class="form-step" data-step="1">
+        <div class="field">
+          <label class="field__label" for="f-nome">Como você prefere ser chamado(a)?</label>
+          <input class="field__input" type="text" id="f-nome" name="nome" required autocomplete="name" />
+        </div>
+        <div class="step-nav">
+          <button type="button" class="briefing__submit step-next">avançar</button>
+        </div>
       </div>
 
-      <div class="field">
-        <span class="field__label">Pode me informar o nome da sua empresa?</span>
-        <div class="choices" role="radiogroup" aria-label="Empresa">
-          <label class="choice">
-            <input type="radio" name="empresa_status" value="sim" data-target="empresa-sim" required />
-            <span class="choice__box"></span>
-            <span>Sim</span>
-          </label>
-          <label class="choice">
-            <input type="radio" name="empresa_status" value="nao_informar" data-target="" />
-            <span class="choice__box"></span>
-            <span>Não posso informar</span>
-          </label>
-          <label class="choice">
-            <input type="radio" name="empresa_status" value="sem_nome" data-target="empresa-sem-nome" />
-            <span class="choice__box"></span>
-            <span>Ainda não tem nome</span>
-          </label>
+      <!-- Etapa 2 — E-mail -->
+      <div class="form-step" data-step="2" hidden>
+        <div class="field">
+          <label class="field__label" for="f-email">Qual o seu melhor e-mail?</label>
+          <span class="field__hint">Aquele que você sempre abre e pelo qual a gente pode te contatar.</span>
+          <input class="field__input" type="email" id="f-email" name="email" required autocomplete="email" />
         </div>
-
-        <div class="subfield" id="empresa-sim" hidden>
-          <label class="field__label" for="f-empresa-nome">Ótimo! Qual o nome?</label>
-          <input class="field__input" type="text" id="f-empresa-nome" name="empresa_nome" />
+        <div class="step-nav">
+          <button type="button" class="step-back">voltar</button>
+          <button type="button" class="briefing__submit step-next">avançar</button>
         </div>
+      </div>
 
-        <div class="subfield" id="empresa-sem-nome" hidden>
-          <span class="field__label">Tudo bem. Sua empresa tem quantos funcionários (ou previsão)?</span>
-          <div class="choices" role="radiogroup" aria-label="Tamanho da empresa" style="margin-top:10px;">
-            <label class="choice"><input type="radio" name="empresa_tamanho" value="sou_eu" /><span class="choice__box"></span><span>Sou eu mesmo</span></label>
-            <label class="choice"><input type="radio" name="empresa_tamanho" value="ate_10" /><span class="choice__box"></span><span>Até 10</span></label>
-            <label class="choice"><input type="radio" name="empresa_tamanho" value="11_50" /><span class="choice__box"></span><span>11 a 50</span></label>
-            <label class="choice"><input type="radio" name="empresa_tamanho" value="51_200" /><span class="choice__box"></span><span>51 a 200</span></label>
-            <label class="choice"><input type="radio" name="empresa_tamanho" value="200_mais" /><span class="choice__box"></span><span>Mais de 200</span></label>
+      <!-- Etapa 3 — Empresa -->
+      <div class="form-step" data-step="3" hidden>
+        <div class="field">
+          <span class="field__label">Pode me informar o nome da sua empresa?</span>
+          <div class="choices" role="radiogroup" aria-label="Empresa">
+            <label class="choice">
+              <input type="radio" name="empresa_status" value="sim" required />
+              <span class="choice__box"></span>
+              <span>Sim</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="empresa_status" value="nao_informar" />
+              <span class="choice__box"></span>
+              <span>Não posso informar</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="empresa_status" value="sem_nome" />
+              <span class="choice__box"></span>
+              <span>Ainda não tem nome</span>
+            </label>
+          </div>
+
+          <!-- Só para "Sim" -->
+          <div class="subfield" id="empresa-nome-wrap" hidden>
+            <label class="field__label" for="f-empresa-nome">Ótimo! Qual o nome?</label>
+            <input class="field__input" type="text" id="f-empresa-nome" name="empresa_nome" />
+          </div>
+
+          <!-- Para "Sim" e "Não posso informar" -->
+          <div class="subfield" id="empresa-tamanho-wrap" hidden>
+            <span class="field__label">Quantos funcionários a empresa tem?</span>
+            <div class="choices" role="radiogroup" aria-label="Tamanho da empresa" style="margin-top:10px;">
+              <label class="choice"><input type="radio" name="empresa_tamanho" value="sou_eu" /><span class="choice__box"></span><span>Sou eu mesmo</span></label>
+              <label class="choice"><input type="radio" name="empresa_tamanho" value="ate_10" /><span class="choice__box"></span><span>Até 10</span></label>
+              <label class="choice"><input type="radio" name="empresa_tamanho" value="11_50" /><span class="choice__box"></span><span>11 a 50</span></label>
+              <label class="choice"><input type="radio" name="empresa_tamanho" value="51_200" /><span class="choice__box"></span><span>51 a 200</span></label>
+              <label class="choice"><input type="radio" name="empresa_tamanho" value="200_mais" /><span class="choice__box"></span><span>Mais de 200</span></label>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="field">
-        <label class="field__label" for="f-cargo">Qual cargo ou função você ocupa na empresa?</label>
-        <input class="field__input" type="text" id="f-cargo" name="cargo" />
-      </div>
-
-      <div class="field">
-        <span class="field__label">Escolha abaixo o que você acha que a sua empresa precisa.</span>
-        <span class="field__hint">Pode marcar mais de uma.</span>
-        <div class="choices">
-          <label class="choice"><input type="checkbox" name="servicos" value="marca" /><span class="choice__box"></span><span>Criação de marca</span></label>
-          <label class="choice"><input type="checkbox" name="servicos" value="site" /><span class="choice__box"></span><span>Criação de site</span></label>
-          <label class="choice"><input type="checkbox" name="servicos" value="redes" /><span class="choice__box"></span><span>Gestão de redes sociais</span></label>
-          <label class="choice"><input type="checkbox" name="servicos" value="grafica" /><span class="choice__box"></span><span>Produção gráfica</span></label>
-          <label class="choice"><input type="checkbox" name="servicos" value="outro" data-target="servicos-outro" /><span class="choice__box"></span><span>Outro</span></label>
-          <label class="choice"><input type="checkbox" name="servicos" value="conversar" /><span class="choice__box"></span><span>Ainda não sei, quero conversar</span></label>
-        </div>
-        <div class="subfield" id="servicos-outro" hidden>
-          <label class="field__label" for="f-servicos-outro">Me conta o que você precisa.</label>
-          <input class="field__input" type="text" id="f-servicos-outro" name="servicos_outro" />
+        <div class="step-nav">
+          <button type="button" class="step-back">voltar</button>
+          <button type="button" class="briefing__submit step-next">avançar</button>
         </div>
       </div>
 
-      <div class="field">
-        <label class="field__label" for="f-desafios">Me fala um pouco da sua empresa e os principais desafios que ela enfrenta.</label>
-        <span class="field__hint">Descreva o segmento de atuação, público-alvo, tempo de mercado e os desafios atuais.</span>
-        <textarea class="field__textarea" id="f-desafios" name="desafios" required></textarea>
-      </div>
-
-      <div class="field">
-        <span class="field__label">Você gostaria de compartilhar o seu número de WhatsApp?</span>
-        <span class="field__hint">Para um contato mais rápido, caso prefira.</span>
-        <div class="choices" role="radiogroup" aria-label="WhatsApp">
-          <label class="choice">
-            <input type="radio" name="whatsapp_optin" value="sim" data-target="whatsapp-sim" />
-            <span class="choice__box"></span>
-            <span>Sim</span>
-          </label>
-          <label class="choice">
-            <input type="radio" name="whatsapp_optin" value="nao" data-target="" />
-            <span class="choice__box"></span>
-            <span>Prefiro contato apenas por e-mail</span>
-          </label>
+      <!-- Etapa 4 — Cargo -->
+      <div class="form-step" data-step="4" hidden>
+        <div class="field">
+          <label class="field__label" for="f-cargo">Qual cargo ou função você ocupa na empresa?</label>
+          <input class="field__input" type="text" id="f-cargo" name="cargo" autocomplete="organization-title" />
         </div>
-        <div class="subfield" id="whatsapp-sim" hidden>
-          <label class="field__label" for="f-whatsapp">Massa! Qual o seu número?</label>
-          <input class="field__input" type="tel" id="f-whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" />
+        <div class="step-nav">
+          <button type="button" class="step-back">voltar</button>
+          <button type="button" class="briefing__submit step-next">avançar</button>
         </div>
       </div>
 
-      <button type="submit" class="briefing__submit" id="briefingSubmit">enviar briefing</button>
+      <!-- Etapa 5 — Serviços -->
+      <div class="form-step" data-step="5" hidden>
+        <div class="field">
+          <span class="field__label">Escolha abaixo o que você acha que a sua empresa precisa.</span>
+          <span class="field__hint">Pode marcar mais de uma.</span>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="servicos" value="marca" /><span class="choice__box"></span><span>Criação de marca</span></label>
+            <label class="choice"><input type="checkbox" name="servicos" value="site" /><span class="choice__box"></span><span>Criação de site</span></label>
+            <label class="choice"><input type="checkbox" name="servicos" value="redes" /><span class="choice__box"></span><span>Gestão de redes sociais</span></label>
+            <label class="choice"><input type="checkbox" name="servicos" value="grafica" /><span class="choice__box"></span><span>Produção gráfica</span></label>
+            <label class="choice"><input type="checkbox" name="servicos" value="outro" data-target="servicos-outro" /><span class="choice__box"></span><span>Outro</span></label>
+            <label class="choice"><input type="checkbox" name="servicos" value="conversar" /><span class="choice__box"></span><span>Ainda não sei, quero conversar</span></label>
+          </div>
+          <div class="subfield" id="servicos-outro" hidden>
+            <label class="field__label" for="f-servicos-outro">Me conta o que você precisa.</label>
+            <input class="field__input" type="text" id="f-servicos-outro" name="servicos_outro" />
+          </div>
+        </div>
+        <div class="step-nav">
+          <button type="button" class="step-back">voltar</button>
+          <button type="button" class="briefing__submit step-next">avançar</button>
+        </div>
+      </div>
+
+      <!-- Etapa 6 — Desafios -->
+      <div class="form-step" data-step="6" hidden>
+        <div class="field">
+          <label class="field__label" for="f-desafios">Me fala um pouco da sua empresa e os principais desafios que ela enfrenta.</label>
+          <span class="field__hint">Descreva o segmento de atuação, público-alvo, tempo de mercado e os desafios atuais.</span>
+          <textarea class="field__textarea" id="f-desafios" name="desafios" required></textarea>
+        </div>
+        <div class="step-nav">
+          <button type="button" class="step-back">voltar</button>
+          <button type="button" class="briefing__submit step-next">avançar</button>
+        </div>
+      </div>
+
+      <!-- Etapa 7 — WhatsApp + Enviar -->
+      <div class="form-step" data-step="7" hidden>
+        <div class="field">
+          <span class="field__label">Você gostaria de compartilhar o seu número de WhatsApp?</span>
+          <span class="field__hint">Para um contato mais rápido, caso prefira.</span>
+          <div class="choices" role="radiogroup" aria-label="WhatsApp">
+            <label class="choice">
+              <input type="radio" name="whatsapp_optin" value="sim" data-target="whatsapp-sim" />
+              <span class="choice__box"></span>
+              <span>Sim</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="whatsapp_optin" value="nao" data-target="" />
+              <span class="choice__box"></span>
+              <span>Prefiro contato apenas por e-mail</span>
+            </label>
+          </div>
+          <div class="subfield" id="whatsapp-sim" hidden>
+            <label class="field__label" for="f-whatsapp">Massa! Qual o seu número?</label>
+            <input class="field__input" type="tel" id="f-whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" />
+          </div>
+        </div>
+        <div class="step-nav">
+          <button type="button" class="step-back">voltar</button>
+          <button type="submit" class="briefing__submit" id="briefingSubmit">enviar briefing</button>
+        </div>
+      </div>
+
+      <!-- Barra de progresso -->
+      <div class="briefing__progress-wrap">
+        <div class="briefing__progress">
+          <div class="briefing__progress-fill" id="progressFill"></div>
+        </div>
+        <span class="briefing__progress-label" id="progressLabel">Etapa 01 de 07</span>
+      </div>
+
       <p class="briefing__status" id="briefingStatus" aria-live="polite"></p>
     </form>
 
@@ -189,43 +251,124 @@
   })();
 
   (function(){
-    // Reveal sub-fields based on radio/checkbox selection
-    document.querySelectorAll('input[data-target]').forEach(function(input){
-      input.addEventListener('change', function(){
-        var name = input.name;
-        var type = input.type;
-        if (type === 'radio') {
-          document.querySelectorAll('input[type="radio"][name="' + name + '"]').forEach(function(r){
-            var tid = r.getAttribute('data-target');
-            if (!tid) return;
-            var el = document.getElementById(tid);
-            if (el) el.hidden = !r.checked;
-          });
-        } else {
-          var tid = input.getAttribute('data-target');
-          if (!tid) return;
-          var el = document.getElementById(tid);
-          if (el) el.hidden = !input.checked;
-        }
-      });
-    });
-  })();
-
-  (function(){
+    var TOTAL_STEPS = 7;
+    var currentStep = 1;
     var form = document.getElementById('briefingForm');
     var status = document.getElementById('briefingStatus');
-    var submit = document.getElementById('briefingSubmit');
+    var progressFill = document.getElementById('progressFill');
+    var progressLabel = document.getElementById('progressLabel');
+    var stepCounter = document.getElementById('stepCounter');
     var section = document.getElementById('briefing');
     if (!form) return;
 
-    function setStatus(msg, isError){
+    function pad2(n) { return ('0' + n).slice(-2); }
+
+    function getStepEl(n) {
+      return form.querySelector('[data-step="' + n + '"]');
+    }
+
+    function updateProgress() {
+      var pct = Math.round((currentStep - 1) / TOTAL_STEPS * 100);
+      progressFill.style.width = pct + '%';
+      if (stepCounter) stepCounter.textContent = pad2(currentStep);
+      if (progressLabel) progressLabel.textContent = 'Etapa ' + pad2(currentStep) + ' de ' + pad2(TOTAL_STEPS);
+    }
+
+    function showError(msg, isError) {
       status.textContent = msg || '';
       status.classList.toggle('is-error', !!isError);
     }
 
-    form.addEventListener('submit', function(e){
+    function validateStep(step) {
+      if (step === 1) {
+        if (!document.getElementById('f-nome').value.trim()) {
+          showError('Preencha o seu nome.', true);
+          return false;
+        }
+      }
+      if (step === 2) {
+        var email = document.getElementById('f-email').value.trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showError('Confira o e-mail informado.', true);
+          return false;
+        }
+      }
+      if (step === 3) {
+        if (!form.querySelector('input[name="empresa_status"]:checked')) {
+          showError('Escolha uma das opções.', true);
+          return false;
+        }
+      }
+      if (step === 6) {
+        if (!document.getElementById('f-desafios').value.trim()) {
+          showError('Descreva um pouco sobre os desafios da empresa.', true);
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function goToStep(n) {
+      getStepEl(currentStep).hidden = true;
+      currentStep = n;
+      getStepEl(currentStep).hidden = false;
+      showError('');
+      updateProgress();
+    }
+
+    // Botões avançar
+    form.querySelectorAll('.step-next').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (!validateStep(currentStep)) return;
+        if (currentStep < TOTAL_STEPS) goToStep(currentStep + 1);
+      });
+    });
+
+    // Botões voltar
+    form.querySelectorAll('.step-back').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (currentStep > 1) goToStep(currentStep - 1);
+      });
+    });
+
+    // Lógica condicional da empresa
+    form.querySelectorAll('input[name="empresa_status"]').forEach(function(r) {
+      r.addEventListener('change', function() {
+        var val = r.value;
+        document.getElementById('empresa-nome-wrap').hidden = (val !== 'sim');
+        document.getElementById('empresa-tamanho-wrap').hidden = (val === 'sem_nome');
+      });
+    });
+
+    // Lógica condicional do WhatsApp e serviços
+    form.querySelectorAll('input[data-target]').forEach(function(input) {
+      input.addEventListener('change', function() {
+        var tid = input.getAttribute('data-target');
+        if (!tid) {
+          // radio sem target: esconde todos os subfields do grupo
+          form.querySelectorAll('input[type="radio"][name="' + input.name + '"][data-target]').forEach(function(r) {
+            var rid = r.getAttribute('data-target');
+            if (rid) { var el = document.getElementById(rid); if (el) el.hidden = true; }
+          });
+          return;
+        }
+        var el = document.getElementById(tid);
+        if (!el) return;
+        if (input.type === 'radio') {
+          form.querySelectorAll('input[type="radio"][name="' + input.name + '"]').forEach(function(r) {
+            var rid = r.getAttribute('data-target');
+            if (rid) { var rel = document.getElementById(rid); if (rel) rel.hidden = !r.checked; }
+          });
+        } else {
+          el.hidden = !input.checked;
+        }
+      });
+    });
+
+    // Submit
+    var submitBtn = document.getElementById('briefingSubmit');
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      setStatus('');
 
       var data = {
         nome: form.nome.value.trim(),
@@ -241,21 +384,9 @@
         whatsapp: form.whatsapp ? form.whatsapp.value.trim() : ''
       };
 
-      if (!data.nome || !data.email || !data.desafios) {
-        setStatus('Preencha nome, e-mail e a descrição dos desafios.', true);
-        return;
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-        setStatus('Confira o e-mail informado.', true);
-        return;
-      }
-      if (!data.empresa_status) {
-        setStatus('Me conta sobre a empresa na pergunta 3.', true);
-        return;
-      }
-
-      submit.disabled = true;
-      setStatus('Enviando...');
+      submitBtn.disabled = true;
+      showError('Enviando...');
+      progressFill.style.width = '100%';
 
       fetch('/api/briefing', {
         method: 'POST',
@@ -270,15 +401,20 @@
           } else {
             var msg = (res.body && res.body.error) || 'Não consegui enviar agora. Tenta de novo daqui a pouco.';
             if (res.body && res.body.detail) msg += ' (' + res.body.detail + ')';
-            setStatus(msg, true);
-            submit.disabled = false;
+            showError(msg, true);
+            submitBtn.disabled = false;
+            progressFill.style.width = Math.round((currentStep - 1) / TOTAL_STEPS * 100) + '%';
           }
         })
         .catch(function(){
-          setStatus('Não consegui enviar agora. Tenta de novo daqui a pouco.', true);
-          submit.disabled = false;
+          showError('Não consegui enviar agora. Tenta de novo daqui a pouco.', true);
+          submitBtn.disabled = false;
+          progressFill.style.width = Math.round((currentStep - 1) / TOTAL_STEPS * 100) + '%';
         });
     });
+
+    // Init
+    updateProgress();
   })();
   </script>
 </body>

@@ -140,14 +140,101 @@ ul { list-style: none; }
 .briefing__text a:hover { opacity: .6; }
 
 /* ---------- Form ---------- */
-.briefing__form { display: flex; flex-direction: column; gap: 36px; }
+.briefing__form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-height: calc(100vh - 260px);
+  max-width: 520px;
+}
 
-.field { display: flex; flex-direction: column; gap: 10px; }
+.briefing__step-meta {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 200;
+  font-size: 20px;
+  color: var(--preto);
+  opacity: .55;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: fadeUp .35s ease both;
+}
+.form-step[hidden] { display: none; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.step-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.step-back {
+  background: none;
+  border: none;
+  font-family: var(--sans-condensed);
+  font-size: var(--fs-b2);
+  color: var(--preto);
+  opacity: .45;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity .2s ease;
+}
+.step-back:hover { opacity: .85; }
+
+/* Progress bar — pinned to the bottom of the form column */
+.briefing__progress-wrap {
+  margin-top: auto;
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.briefing__progress {
+  height: 1.5px;
+  background: rgba(20, 20, 20, 0.15);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.briefing__progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--preto);
+  border-radius: 1px;
+  transition: width 0.45s cubic-bezier(.4,0,.2,1);
+}
+
+.briefing__progress-label {
+  font-family: var(--sans-condensed);
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--preto);
+  opacity: .45;
+  font-variant-numeric: tabular-nums;
+}
+
+.field { display: flex; flex-direction: column; gap: 12px; }
 
 .field__label {
   font-family: var(--sans-condensed);
-  font-size: var(--fs-b1);
-  line-height: 1.35;
+  font-size: 28px;
+  line-height: 1.25;
   color: var(--preto);
 }
 
@@ -320,7 +407,10 @@ ul { list-style: none; }
   .briefing__intro { position: static; }
   .briefing__title { font-size: 32px; }
   .briefing__text { font-size: 20px; max-width: 100%; }
-  .field__label { font-size: 20px; }
+  .briefing__form { min-height: auto; gap: 32px; max-width: 100%; }
+  .briefing__progress-wrap { padding-top: 24px; }
+  .form-step { gap: 24px; }
+  .field__label { font-size: 22px; }
   .briefing__done-title { font-size: 32px; }
 }
 
