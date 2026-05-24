@@ -74,7 +74,6 @@ ul { list-style: none; }
   top: 0;
   background: var(--branco);
   z-index: 10;
-  border-bottom: var(--linha);
 }
 .nav__left { display: flex; gap: 56px; }
 .nav a { transition: opacity .2s ease; }
