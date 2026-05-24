@@ -524,6 +524,44 @@
     }
     .btn-text:hover { background: var(--preto); color: var(--branco); }
 
+    /* ---------- FAQ ---------- */
+    .info__body details {
+      border-top: 1px solid rgba(20,20,20,0.12);
+      padding: 18px 0;
+    }
+    .info__body details:last-of-type { border-bottom: 1px solid rgba(20,20,20,0.12); }
+    .info__body details summary {
+      list-style: none;
+      cursor: pointer;
+      font-family: var(--sans-condensed);
+      font-size: var(--fs-b1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .info__body details summary::-webkit-details-marker { display: none; }
+    .info__body details summary::after {
+      content: '+';
+      font-family: var(--sans-condensed);
+      font-size: 28px;
+      line-height: 1;
+      transition: transform .25s ease;
+    }
+    .info__body details[open] summary::after {
+      content: '–';
+    }
+    .info__body details p {
+      margin-top: 12px;
+      font-size: var(--fs-b2);
+      line-height: 1.6;
+      max-width: 640px;
+    }
+    .info__body details a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
     /* ---------- Entre em contato ---------- */
     .contact {
       border-top: var(--linha);

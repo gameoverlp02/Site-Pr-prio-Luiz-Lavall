@@ -6,9 +6,9 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <title>Briefing — Luiz Lavall</title>
-  <meta name="title" content="Briefing — Luiz Lavall" />
-  <meta name="description" content="Me conta seus desafios. Preencha o briefing para que a gente possa conversar sobre o seu projeto." />
+  <title>Contato e Briefing — Luiz Lavall, Designer em Belo Horizonte</title>
+  <meta name="title" content="Contato e Briefing — Luiz Lavall, Designer em Belo Horizonte" />
+  <meta name="description" content="Me conte sobre o seu projeto. Preencha o briefing para que eu possa entender o desafio e enviar uma proposta — ou fale comigo direto por WhatsApp, e-mail ou LinkedIn." />
   <meta name="author" content="Luiz Lavall" />
   <meta name="theme-color" content="#141414" />
   <meta name="robots" content="index, follow" />
@@ -18,9 +18,36 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:site_name" content="Luiz Lavall" />
   <meta property="og:url" content="https://luizlavall.com.br/briefing.html" />
-  <meta property="og:title" content="Briefing — Luiz Lavall" />
-  <meta property="og:description" content="Me conta seus desafios. Preencha o briefing para conversarmos sobre o seu projeto." />
+  <meta property="og:title" content="Contato e Briefing — Luiz Lavall" />
+  <meta property="og:description" content="Me conte sobre o seu projeto. Preencha o briefing para que eu possa entender o desafio e enviar uma proposta." />
   <meta property="og:image" content="https://luizlavall.com.br/logo.svg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "url": "https://luizlavall.com.br/briefing.html",
+    "name": "Contato e Briefing — Luiz Lavall",
+    "inLanguage": "pt-BR",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Luiz Lavall",
+      "url": "https://luizlavall.com.br/",
+      "email": "mailto:luizpaulo.lavall@gmail.com",
+      "telephone": "+55-62-99176-0298",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "telephone": "+55-62-99176-0298",
+          "email": "luizpaulo.lavall@gmail.com",
+          "availableLanguage": ["Portuguese"],
+          "areaServed": "BR"
+        }
+      ]
+    }
+  }
+  </script>
 
   <link rel="preload" href="/margem%20condensed/Margem-CondensedRegular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/css/briefing.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -47,10 +74,10 @@
 
   <section class="briefing" id="briefing">
     <div class="briefing__intro">
-      <h1 class="briefing__title">Me conta seus desafios.</h1>
+      <h1 class="briefing__title">Me conte sobre o seu projeto.</h1>
       <div class="briefing__text">
-        <p>Preencha a solicitação para que eu possa agendar um horário e conversar sobre o seu projeto.</p>
-        <p>Se preferir, envie um e-mail para <a href="mailto:luizpaulo.lavall@gmail.com">luizpaulo.lavall@gmail.com</a> ou uma mensagem pelo <a href="https://wa.me/5562991760298?text=Ol%C3%A1%2C+Luiz%21+Vi+seu+site+e+gostaria+de+conversar+com+voc%C3%AA." target="_blank" rel="noopener">WhatsApp</a>.</p>
+        <p>Preencha o formulário abaixo para que eu possa entender o seu desafio e agendar uma conversa.</p>
+        <p>Se preferir contato direto, envie um e-mail para <a href="mailto:luizpaulo.lavall@gmail.com">luizpaulo.lavall@gmail.com</a> ou uma mensagem pelo <a href="https://wa.me/5562991760298?text=Ol%C3%A1%2C+Luiz%21+Vi+seu+site+e+gostaria+de+conversar+com+voc%C3%AA." target="_blank" rel="noopener">WhatsApp (62 99176-0298)</a>.</p>
       </div>
     </div>
 
@@ -75,7 +102,7 @@
       <div class="form-step" data-step="2" hidden>
         <div class="field">
           <label class="field__label" for="f-email">Qual o seu melhor e-mail?</label>
-          <span class="field__hint">Aquele que você sempre abre e pelo qual a gente pode te contatar.</span>
+          <span class="field__hint">Aquele que você abre todo dia e pelo qual eu posso te responder.</span>
           <input class="field__input" type="email" id="f-email" name="email" required autocomplete="email" />
         </div>
         <div class="step-nav">
@@ -97,7 +124,7 @@
             <label class="choice">
               <input type="radio" name="empresa_status" value="nao_informar" />
               <span class="choice__box"></span>
-              <span>Não posso informar</span>
+              <span>Prefiro não informar</span>
             </label>
             <label class="choice">
               <input type="radio" name="empresa_status" value="sem_nome" />
@@ -108,7 +135,7 @@
 
           <!-- Só para "Sim" -->
           <div class="subfield" id="empresa-nome-wrap" hidden>
-            <label class="field__label" for="f-empresa-nome">Ótimo! Qual o nome?</label>
+            <label class="field__label" for="f-empresa-nome">Ótimo. Qual o nome?</label>
             <input class="field__input" type="text" id="f-empresa-nome" name="empresa_nome" />
           </div>
 
@@ -156,7 +183,7 @@
             <label class="choice"><input type="checkbox" name="servicos" value="conversar" /><span class="choice__box"></span><span>Ainda não sei, quero conversar</span></label>
           </div>
           <div class="subfield" id="servicos-outro" hidden>
-            <label class="field__label" for="f-servicos-outro">Me conta o que você precisa.</label>
+            <label class="field__label" for="f-servicos-outro">Me conte o que você precisa.</label>
             <input class="field__input" type="text" id="f-servicos-outro" name="servicos_outro" />
           </div>
         </div>
@@ -169,8 +196,8 @@
       <!-- Etapa 6 — Desafios -->
       <div class="form-step" data-step="6" hidden>
         <div class="field">
-          <label class="field__label" for="f-desafios">Me fala um pouco da sua empresa e os principais desafios que ela enfrenta.</label>
-          <span class="field__hint">Descreva o segmento de atuação, público-alvo, tempo de mercado e os desafios atuais.</span>
+          <label class="field__label" for="f-desafios">Me conte um pouco sobre a sua empresa e os principais desafios que ela enfrenta.</label>
+          <span class="field__hint">Descreva o segmento de atuação, o público, o tempo de mercado e os desafios atuais.</span>
           <textarea class="field__textarea" id="f-desafios" name="desafios" required></textarea>
         </div>
         <div class="step-nav">
@@ -197,7 +224,7 @@
             </label>
           </div>
           <div class="subfield" id="whatsapp-sim" hidden>
-            <label class="field__label" for="f-whatsapp">Massa! Qual o seu número?</label>
+            <label class="field__label" for="f-whatsapp">Ótimo. Qual o seu número?</label>
             <input class="field__input" type="tel" id="f-whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" />
           </div>
         </div>
@@ -220,7 +247,7 @@
 
     <div class="briefing__done" id="briefingDone" aria-live="polite">
       <h2 class="briefing__done-title">Recebido!</h2>
-      <p class="briefing__done-text">Agradeço pela sua resposta. Vou analisar com calma todas as informações que você me enviou e em breve entro em contato.</p>
+      <p class="briefing__done-text">Obrigado por compartilhar essas informações comigo. Vou analisar com calma o que você enviou e em breve entro em contato para conversarmos.</p>
     </div>
   </section>
   </div>
@@ -282,7 +309,7 @@
     function validateStep(step) {
       if (step === 1) {
         if (!document.getElementById('f-nome').value.trim()) {
-          showError('Preencha o seu nome.', true);
+          showError('Por favor, preencha o seu nome.', true);
           return false;
         }
       }
@@ -295,13 +322,13 @@
       }
       if (step === 3) {
         if (!form.querySelector('input[name="empresa_status"]:checked')) {
-          showError('Escolha uma das opções.', true);
+          showError('Escolha uma das opções para seguir.', true);
           return false;
         }
       }
       if (step === 6) {
         if (!document.getElementById('f-desafios').value.trim()) {
-          showError('Descreva um pouco sobre os desafios da empresa.', true);
+          showError('Conte um pouco sobre os desafios da empresa.', true);
           return false;
         }
       }
@@ -385,7 +412,7 @@
       };
 
       submitBtn.disabled = true;
-      showError('Enviando...');
+      showError('Enviando…');
       progressFill.style.width = '100%';
 
       fetch('/api/briefing', {
@@ -399,7 +426,7 @@
             section.classList.add('is-done');
             window.scrollTo({ top: section.offsetTop - 40, behavior: 'smooth' });
           } else {
-            var msg = (res.body && res.body.error) || 'Não consegui enviar agora. Tenta de novo daqui a pouco.';
+            var msg = (res.body && res.body.error) || 'Não consegui enviar agora. Tente novamente em alguns instantes.';
             if (res.body && res.body.detail) msg += ' (' + res.body.detail + ')';
             showError(msg, true);
             submitBtn.disabled = false;
@@ -407,7 +434,7 @@
           }
         })
         .catch(function(){
-          showError('Não consegui enviar agora. Tenta de novo daqui a pouco.', true);
+          showError('Não consegui enviar agora. Tente novamente em alguns instantes.', true);
           submitBtn.disabled = false;
           progressFill.style.width = Math.round((currentStep - 1) / TOTAL_STEPS * 100) + '%';
         });
